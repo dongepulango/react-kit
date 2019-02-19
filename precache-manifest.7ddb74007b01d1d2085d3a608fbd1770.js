@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "/react-kit/static/media/BalkanBrothers-logo-white.f4242690.svg"
   },
   {
-    "revision": "e7db42b16a76b9b7bb61b3da408107f3",
-    "url": "/react-kit/static/media/LotaGrotesque-Regular.e7db42b1.woff2"
-  },
-  {
     "revision": "513f6512a122516770454822b3154362",
     "url": "/react-kit/static/media/LotaGrotesque-Bold.513f6512.woff2"
+  },
+  {
+    "revision": "e7db42b16a76b9b7bb61b3da408107f3",
+    "url": "/react-kit/static/media/LotaGrotesque-Regular.e7db42b1.woff2"
   },
   {
     "revision": "b34e623453b5a55ad650fcf0fd2bdca0",
@@ -34,10 +34,6 @@ self.__precacheManifest = [
   {
     "revision": "4d9db46335a6a934a4ed",
     "url": "/react-kit/static/js/main.4d9db463.chunk.js"
-  },
-  {
-    "revision": "f144e9469e5174e5d7462b1b655ccb8c",
-    "url": "/react-kit/static/media/LotaGrotesque-Regular.f144e946.ttf"
   },
   {
     "revision": "598e186c2541c3b3cb333636c802f349",
@@ -50,6 +46,10 @@ self.__precacheManifest = [
   {
     "revision": "b06de3c7ac3a29a6dcd1190e26018d1c",
     "url": "/react-kit/static/media/LotaGrotesque-Bold.b06de3c7.eot"
+  },
+  {
+    "revision": "f144e9469e5174e5d7462b1b655ccb8c",
+    "url": "/react-kit/static/media/LotaGrotesque-Regular.f144e946.ttf"
   },
   {
     "revision": "c89dd601f23c8e45c535a2e9a680a0f1",
