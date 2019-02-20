@@ -8,7 +8,7 @@ import Error from './components/pages/Error'
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path="/" component={Home} exact={true}/>
           <Route path="/about" component={About} />
