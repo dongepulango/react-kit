@@ -1,12 +1,12 @@
 import React from 'react';
-import Wrap from '../Wrap';
+import Wrapper from '../components/Wrapper';
 
 const Error = () => {
   return (
-    <Wrap>
+    <Wrapper>
       <h1>404</h1>
       <p>Page not found.</p>
-    </Wrap>
+    </Wrapper>
   );
 }
 
