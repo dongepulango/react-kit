@@ -6,7 +6,11 @@ import styled from 'styled-components';
 const CardInner = styled.div`
   border-radius: 4px;
   background-color: #eee;
-  padding: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+  h3 {
+    margin-bottom: 10px;
+  }
 `;
 
 const Card = (props) => {

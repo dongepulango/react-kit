@@ -5,11 +5,13 @@
   "homepage": "https://dongepulango.github.io/react-kit/",
   "dependencies": {
     "gh-pages": "^2.0.1",
+    "gsap": "^2.1.2",
     "polished": "^3.0.3",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "react-transition-group": "^2.6.1",
     "styled-bootstrap-grid": "^3.0.2",
     "styled-components": "^4.1.3"
   },

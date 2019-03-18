@@ -1,17 +1,51 @@
 import React from 'react';
 //styles
 import styled from 'styled-components';
+import { Row, Col } from 'styled-bootstrap-grid';
+//components
+import ContainerFluid from './ContainerFluid';
 
 //styled
 const FooterInner = styled.footer`
   background-color: #eee;
-  padding: 20px;
+`;
+
+const FooterTop = styled.section`
+  padding-top: 100px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #ddd;
+`;
+
+const FooterBottom = styled.section`
+  padding-top: 50px;
+  padding-bottom: 100px;
+  border-bottom: 1px solid #ddd;
 `;
 
 const Footer = () => {
   return (
     <FooterInner>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, cumque corporis voluptatem, non minus hic fugit aspernatur officiis sint sunt facere ullam amet quidem? Molestias sapiente ex dicta amet eligendi architecto, saepe iste itaque mollitia quidem, accusantium sint.</p>
+      <ContainerFluid>
+        <FooterTop>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea animi quis quibusdam numquam modi cumque ab, vero labore aperiam quae repellat maxime nemo tenetur minima. Vero iusto id in odio?</p>
+        </FooterTop>
+        <FooterBottom>
+          <Row>
+            <Col md={6} xl={3}>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae minima officia ex fugiat, ea excepturi fugit? Dolor repellat</p>
+            </Col>
+            <Col md={6} xl={3}>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae minima officia ex fugiat, ea excepturi fugit? Dolor repellat</p>
+            </Col>
+            <Col md={6} xl={3}>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae minima officia ex fugiat, ea excepturi fugit? Dolor repellat</p>
+            </Col>
+            <Col md={6} xl={3}>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae minima officia ex fugiat, ea excepturi fugit? Dolor repellat</p>
+            </Col>
+          </Row>
+        </FooterBottom>
+      </ContainerFluid>
     </FooterInner>
   );
 }

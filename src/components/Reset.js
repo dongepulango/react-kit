@@ -1,6 +1,6 @@
 import { css, createGlobalStyle } from 'styled-components'
 
-export const reset = css`
+const reset = css`
   /* Bootstrap Reboot v4.3.1 */
   *,
   *::before,
@@ -269,50 +269,8 @@ export const reset = css`
   [hidden] {
     display: none !important;
   }
-
-  /* My Typography Styles */
-  a,
-  button {
-    transition: color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s, border 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s;;
-    cursor: pointer;
-    &:hover,
-    &:active,
-    &:focus {
-      text-decoration: none;
-      outline: none;
-    }
-    &:active {
-      &:focus {
-        outline: none;
-      }
-    }
-    &[x-apple-data-detectors] {
-      color: inherit !important;
-      text-decoration: none !important;
-      font-size: inherit !important;
-      font-family: inherit !important;
-      font-weight: inherit !important;
-      line-height: inherit !important;
-    }
-  }
-  p {
-    margin-bottom: 0;
-    + p {
-      margin-top: 15px;
-    }
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: $text-drk;
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
 `;
 
-export const Reset = createGlobalStyle`${reset}`
+export const Reset = createGlobalStyle`${reset}`;
 
-export default reset
+export default reset;
