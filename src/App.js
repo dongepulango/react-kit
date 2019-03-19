@@ -2,7 +2,8 @@ import React from 'react';
 //Router
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //Transition
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Transition, TransitionGroup } from 'react-transition-group';
+import { play, exit } from './components/Transitions';
 //Styles
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import reset from './components/Reset';
@@ -40,18 +41,27 @@ class App extends React.Component {
         <GlobalStyle />
         <ThemeProvider theme={theme}>
           <BrowserRouter basename={process.env.PUBLIC_URL}>
-            <Route render={({location}) => (
-              <TransitionGroup>
-                <CSSTransition key={location.key} timeout={300} classNames="fade">
-                  <Switch location={location}>
-                    <Route path="/" component={Home} exact={true} />
-                    <Route path="/about" component={About} />
-                    <Route path="/contact" component={Contact} />
-                    <Route component={Error} />
-                  </Switch>
-                </CSSTransition>
-              </TransitionGroup>
-            )}/>
+            <Route render={({ location }) => {
+              const { pathname, key } = location;
+              return (
+                <TransitionGroup component={null}>
+                  <Transition
+                    key={key}
+                    appear={true}
+                    onEnter={(node, appears) => play(pathname, node, appears)}
+                    onExit={(node, appears) => exit(node, appears)}
+                    timeout={{enter: 750, exit: 150}}
+                  >
+                    <Switch location={location}>
+                      <Route path="/" component={Home} exact={true} />
+                      <Route path="/about" component={About} />
+                      <Route path="/contact" component={Contact} />
+                      <Route component={Error} />
+                    </Switch>
+                  </Transition>
+                </TransitionGroup>
+              )
+            }}/>
           </BrowserRouter>
         </ThemeProvider>
       </React.Fragment>

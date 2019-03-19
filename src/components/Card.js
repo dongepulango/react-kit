@@ -5,7 +5,7 @@ import styled from 'styled-components';
 //styled
 const CardInner = styled.div`
   border-radius: 4px;
-  background-color: #eee;
+  background-color: #f5f5f5;
   padding: 30px;
   margin-bottom: 20px;
   h3 {

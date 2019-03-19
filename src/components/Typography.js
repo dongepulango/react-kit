@@ -5,10 +5,11 @@ import vars from './Vars';
 const typography = css`
   /* My Typography Styles */
   body {
-    color: ${vars.colors.text};
+    font-size: ${vars.fonts.fontSize};
     font-family: ${vars.fonts.fontFamily};
     font-weight: ${vars.fonts.fontWeight};
     line-height:  ${vars.fonts.lineHeight};
+    color: ${vars.colors.text};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

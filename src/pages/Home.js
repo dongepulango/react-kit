@@ -8,7 +8,8 @@ import Wrapper from '../components/Wrapper';
 import ContainerFluid from '../components/ContainerFluid';
 import Button from '../components/Button';
 import Card from '../components/Card';
-import { Heading } from '../components/Heading';
+import Heading from '../components/Heading';
+import { Label, FormGroup, FormInput, FormTextArea } from '../components/Forms';
 //grid
 import { Row, Col } from 'styled-bootstrap-grid';
 
@@ -67,6 +68,20 @@ const Home = () => {
               <Button warning>Warning</Button>
               <Button danger>Danger</Button>
               <Button info>Info</Button>
+              <br></br>
+              <br></br>
+              <FormGroup>
+                <Label>Full Name</Label>
+                <FormInput type={'text'} placeholder={'Full Name'}></FormInput>
+              </FormGroup>
+              <FormGroup>
+                <Label>Last Name</Label>
+                <FormInput type={'email'} placeholder={'Email'}></FormInput>
+              </FormGroup>
+              <FormGroup>
+                <Label>Message</Label>
+                <FormTextArea rows={'5'}  placeholder={'Write your message...'}></FormTextArea>
+              </FormGroup>
             </Col>
             <Col md={6}>
               {

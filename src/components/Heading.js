@@ -4,7 +4,7 @@ import { between } from 'polished';
 import vars from './Vars';
 
 //styled
-export const Heading = styled.h1`
+const Heading = styled.h1`
   color: ${vars.colors.textDark};
   font-weight: 500;
   line-height: ${props => props.lh ? props.lh : 1.2};
@@ -50,6 +50,4 @@ export const Heading = styled.h1`
   `}
 `;
 
-
-
-
+export default Heading;

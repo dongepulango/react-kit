@@ -13,8 +13,8 @@ import logo from '../assets/images/BalkanBrothers-logo-white.svg';
 //styled
 const HeaderInner = styled.header`
   background-color: ${vars.colors.textDark};
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   transition: ${vars.transitions.hover1};
   &.active {
     background-color: #000;
