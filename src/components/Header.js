@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState } from 'react';
 //router
 import { Link } from 'react-router-dom'
 //styles
@@ -26,22 +26,32 @@ const NavContainerFluid = styled(ContainerFluid)`
   justify-content: space-between;
 `;
 
-//Create Context
-export const NavContext = createContext([false, () => {}]);
 
 const Header = () => {
 
   //State
-  let [navState, setActive] = useState(false);
+  const [navState, setNavState] = useState({
+    active: false
+  });
+
+  //set nav active
+  const toggleNavActive = () => {
+    setNavState({
+      active: !navState.active,
+    })
+  }
 
   return (
-    <HeaderInner className={navState === true ? 'active' : null}>
-      <NavContext.Provider value={[navState, setActive]}>
-        <NavContainerFluid maxWidth={'1600px'}>
-          <Link to="/"><img src={logo} className="logo" alt="logo" /></Link>
-          <Nav />
-        </NavContainerFluid>
-      </NavContext.Provider>
+    <HeaderInner className={navState.active ? 'active' : null}>
+      <NavContainerFluid maxWidth={'1600px'}>
+        <Link to="/">
+          <img src={logo} className="logo" alt="logo" />
+        </Link>
+        <Nav
+          navState={navState}
+          toggleNavActive={toggleNavActive}
+        />
+      </NavContainerFluid>
     </HeaderInner>
   );
 }

@@ -25,6 +25,7 @@ const vars = {
     xlMin: '1200px',
     xxlMin: '1400px',
     xsMax: '575px',
+    smMax: '767px',
     mdMax: '991px',
     lgMax: '1199px',
     xlMax: '1399px',

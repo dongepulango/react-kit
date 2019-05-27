@@ -1,6 +1,4 @@
-import React, { useContext } from 'react';
-//context
-import { NavContext } from "./Header";
+import React from 'react';
 //router
 import { NavLink } from 'react-router-dom'
 //styles
@@ -58,17 +56,7 @@ const NavInner = styled.nav`
   }
 `;
 
-const Nav = () => {
-
-  //Use Context
-  let [navState, setActive] = useContext(NavContext);
-  
-  //Toggle Active
-  const toggleActive = () => {
-    setActive(navState = !navState);
-    //console.log(navState);
-  }
-
+const Nav = (props) => {
   return (
     <NavInner>
       <ul>
@@ -82,7 +70,7 @@ const Nav = () => {
           <NavLink to="/contact">Contact</NavLink>
         </li>
         <li className="nav-toggle">
-          <span className={navState === true ? 'active toggle' : 'toggle'} onClick={toggleActive}>Menu</span>
+          <span className={props.navState.active ? 'active toggle' : 'toggle'} onClick={props.toggleNavActive}>Menu</span>
         </li>
       </ul>
     </NavInner>
