@@ -62,9 +62,27 @@ const typography = css`
     margin-top: 0;
     margin-bottom: ${vars.rems.f20};
   }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
 
   /* Web Fonts */
-  /* @font-face {
+  @font-face {
     font-family: 'Lota Grotesque';
     src: url('./assets/fonts/LotaGrotesque-Regular.eot');
     src: url('./assets/fonts/LotaGrotesque-Regular.eot?#iefix') format('embedded-opentype'),
@@ -88,7 +106,7 @@ const typography = css`
     font-weight: bold;
     font-style: normal;
     font-display: fallback;
-  } */
+  }
 `;
 
 export const Typography = createGlobalStyle`${typography}`;
