@@ -1,12 +1,14 @@
 {
-  "main.js": "/react-kit/static/js/main.de1f6314.chunk.js",
-  "main.js.map": "/react-kit/static/js/main.de1f6314.chunk.js.map",
-  "runtime~main.js": "/react-kit/static/js/runtime~main.018eaecb.js",
-  "runtime~main.js.map": "/react-kit/static/js/runtime~main.018eaecb.js.map",
-  "static/js/2.4863fb6f.chunk.js": "/react-kit/static/js/2.4863fb6f.chunk.js",
-  "static/js/2.4863fb6f.chunk.js.map": "/react-kit/static/js/2.4863fb6f.chunk.js.map",
-  "index.html": "/react-kit/index.html",
-  "precache-manifest.9d3ea60b47ffcea031b77dee42f4495c.js": "/react-kit/precache-manifest.9d3ea60b47ffcea031b77dee42f4495c.js",
-  "service-worker.js": "/react-kit/service-worker.js",
-  "static/media/BalkanBrothers-logo-white.svg": "/react-kit/static/media/BalkanBrothers-logo-white.f4242690.svg"
+  "files": {
+    "main.js": "/react-kit/static/js/main.d79039fe.chunk.js",
+    "main.js.map": "/react-kit/static/js/main.d79039fe.chunk.js.map",
+    "runtime~main.js": "/react-kit/static/js/runtime~main.9b365e17.js",
+    "runtime~main.js.map": "/react-kit/static/js/runtime~main.9b365e17.js.map",
+    "static/js/2.8f1356b0.chunk.js": "/react-kit/static/js/2.8f1356b0.chunk.js",
+    "static/js/2.8f1356b0.chunk.js.map": "/react-kit/static/js/2.8f1356b0.chunk.js.map",
+    "index.html": "/react-kit/index.html",
+    "precache-manifest.c6423dd58f4ec70b2070fd35d2daf366.js": "/react-kit/precache-manifest.c6423dd58f4ec70b2070fd35d2daf366.js",
+    "service-worker.js": "/react-kit/service-worker.js",
+    "static/media/BalkanBrothers-logo-white.svg": "/react-kit/static/media/BalkanBrothers-logo-white.f4242690.svg"
+  }
 }

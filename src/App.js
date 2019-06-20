@@ -1,4 +1,6 @@
 import React from 'react';
+//context
+import GlobalContext from './Context';
 //Router
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ScrollToTop from 'react-router-scroll-top';
@@ -25,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 //Page Wrapper
 const PageWrap = styled.main`
   position: relative;
-  /* Transition */
+  /* Page Transitions */
   .fade-enter {
     opacity: 0;
   }
@@ -60,13 +62,13 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <React.Fragment>
+        <GlobalContext>
           <GlobalStyle />
+          <ScrollToTop />
           <PageWrap>
             <PageWrapInner>
               <Header />
-              <ScrollToTop />
-              <Route render={({ location }) => (
+              <Route render={({location}) => (
                 <TransitionGroup>
                   <CSSTransition
                     key={location.key}
@@ -81,10 +83,10 @@ class App extends React.Component {
                     </Switch>
                   </CSSTransition>
                 </TransitionGroup>
-              )} />
+              )}/>
             </PageWrapInner>
           </PageWrap> 
-        </React.Fragment>
+        </GlobalContext>
       </BrowserRouter>
     );
   }

@@ -1,4 +1,4 @@
-import { css, createGlobalStyle } from 'styled-components'
+import { css, createGlobalStyle } from 'styled-components';
 
 const reset = css`
   /* Bootstrap Reboot v4.3.1 */

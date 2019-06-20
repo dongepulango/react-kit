@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+//context
+import { GlobalContext } from '../Context';
 //router
 import { Link } from 'react-router-dom'
 //styles
@@ -29,27 +31,47 @@ const NavContainerFluid = styled(ContainerFluid)`
 
 const Header = () => {
 
-  //State
-  const [navState, setNavState] = useState({
-    active: false
-  });
+  // //use State
+  // const [navState, setNavState] = useState({
+  //   active: false
+  // });
 
-  //set nav active
-  const toggleNavActive = () => {
-    setNavState({
-      active: !navState.active,
+  // //set nav active
+  // const toggleNavActive = () => {
+  //   setNavState({
+  //     active: !navState.active,
+  //   })
+  // }
+
+  // //mount
+  // useEffect(() => {
+  //   console.log('Mounted!');
+  //   //unmount
+  //   return () => {
+  //     console.log('Unmounted!');
+  //   };
+  // }, []);
+
+  //use Context
+  const [state, setState] = useContext(GlobalContext);
+
+  //toggle mobile nav state
+  const toggleMobileNav = () => {
+    setState({
+      ...state,
+      mobileNav: !state.mobileNav,
     })
   }
-
+  
   return (
-    <HeaderInner className={navState.active ? 'active' : null}>
+    <HeaderInner className={state.mobileNav ? 'active' : null}>
       <NavContainerFluid maxWidth={'1600px'}>
         <Link to="/">
           <img src={logo} className="logo" alt="logo" />
         </Link>
         <Nav
-          navState={navState}
-          toggleNavActive={toggleNavActive}
+          mobileNavState={state.mobileNav}
+          toggleMobileNav={toggleMobileNav}
         />
       </NavContainerFluid>
     </HeaderInner>

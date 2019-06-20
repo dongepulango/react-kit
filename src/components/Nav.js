@@ -70,7 +70,7 @@ const Nav = (props) => {
           <NavLink to="/contact">Contact</NavLink>
         </li>
         <li className="nav-toggle">
-          <span className={props.navState.active ? 'active toggle' : 'toggle'} onClick={props.toggleNavActive}>Menu</span>
+          <span className={props.mobileNavState ? 'active toggle' : 'toggle'} onClick={props.toggleMobileNav}>Menu</span>
         </li>
       </ul>
     </NavInner>

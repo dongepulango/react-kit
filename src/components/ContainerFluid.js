@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import vars from './Vars';
 
-export const ContainerFluid = styled.div`
+const ContainerFluid = styled.div`
   width: 100%;
   max-width: ${props => props.maxWidth ? props.maxWidth : vars.maxWidth};
   margin-left: auto;
