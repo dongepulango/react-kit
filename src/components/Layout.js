@@ -6,18 +6,26 @@ import Footer from './Footer.js';
 
 //styled
 const Content = styled.section`
-  position: relative;
+  position: absolute;
+  overflow: hidden;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%!important;
   min-height: 400px;
 `;
 
+const ContentInner = styled.div``;
+
 const Layout = (props) => {
   return (
-    <React.Fragment>
-      <Content>
+    <Content>
+      <ContentInner>
         {props.children}
-      </Content>
+      </ContentInner>
       <Footer />
-    </React.Fragment>
+    </Content>
   );
 };
 

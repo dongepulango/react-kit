@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 //context
 import GlobalContext from './Context';
 //Router
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch, __RouterContext } from 'react-router-dom';
 import ScrollToTop from 'react-router-scroll-top';
-//Transition
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 //Styles
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import reset from './components/Reset';
 import typography from './components/Typography';
+import vars from './components/Vars';
 //components
 import Header from './components/Header';
 //Pages
@@ -17,6 +16,8 @@ import Home from './components/home/Home'
 import About from './components/about/About'
 import Contact from './components/contact/Contact'
 import Error from './components/error/Error'
+//animations
+import { useTransition, animated as A } from 'react-spring';
 
 //Reset & Default Styles
 const GlobalStyle = createGlobalStyle`
@@ -24,72 +25,68 @@ const GlobalStyle = createGlobalStyle`
   ${typography};
 `;
 
-//Page Wrapper
-const PageWrap = styled.main`
+//Theme Colors
+const theme = {
+  gray: vars.colors.text,
+  grayDark: vars.colors.textDark,
+  grayLight: vars.colors.textLight,
+  primary: vars.colors.blue,
+  secondary: vars.colors.orange,
+  success: vars.colors.green,
+  danger: vars.colors.red,
+  warning: vars.colors.yellow,
+  info: vars.colors.teal,
+}
+
+//styled
+const PageWrap = styled.section`
   position: relative;
-  /* Page Transitions */
-  .fade-enter {
-    opacity: 0;
-  }
-  .fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 0.5s linear;
-  }
-  .fade-exit {
-    opacity: 1;
-  }
-  .fade-exit.fade-exit-active {
-    opacity: 0;
-    transition: opacity 0.5s linear;
+  > section {
+    position: relative;
   }
 `;
 
-const PageWrapInner = styled.section`
-  width: 100%;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-  background-color: #fff;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-`;
+const App = () => {
 
-class App extends React.Component {
-  render() {
-    return (
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <GlobalContext>
-          <GlobalStyle />
-          <ScrollToTop />
-          <PageWrap>
-            <PageWrapInner>
-              <Header />
-              <Route render={({location}) => (
-                <TransitionGroup>
-                  <CSSTransition
-                    key={location.key}
-                    timeout={500}
-                    classNames="fade"
-                    unmountOnExit={true}>
-                    <Switch>
-                      <Route path="/" component={Home} exact={true} />
-                      <Route path="/about" component={About} />
-                      <Route path="/contact" component={Contact} />
-                      <Route component={Error} />
-                    </Switch>
-                  </CSSTransition>
-                </TransitionGroup>
-              )}/>
-            </PageWrapInner>
-          </PageWrap> 
-        </GlobalContext>
-      </BrowserRouter>
-    );
-  }
+  //use Router Context for location
+  const { location } = useContext(__RouterContext);
+  //page transitions
+  const transitions = useTransition(location, location => location.pathname, {
+    from: {
+      opacity: 0,
+      //transform: 'translate(100%, 0)',
+    },
+    enter: {
+      opacity: 1,
+      //transform: 'translate(0, 0)',
+    },
+    leave: {
+      opacity: 0,
+      //transform: 'translate(-50%, 0)',
+    },
+  });
+
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalContext>
+        <GlobalStyle />
+        <ScrollToTop />
+        <PageWrap>
+          <Header />
+          {transitions.map(({ item, props, key }) => (
+            <A.section key={key} style={props}>
+              <Switch location={item}>
+                <Route path="/" component={Home} exact={true} />
+                <Route path="/about" component={About} />
+                <Route path="/contact" component={Contact} />
+                <Route component={Error} />
+              </Switch>
+            </A.section>
+          ))}
+        </PageWrap> 
+      </GlobalContext>
+    </ThemeProvider>
+  );
 }
 
 export default App;
