@@ -1,6 +1,7 @@
 import React from 'react';
 //styles
 import styled from 'styled-components';
+import vars from './Vars';
 //components
 import Footer from './Footer.js';
 
@@ -14,6 +15,7 @@ const Content = styled.section`
   right: 0;
   width: 100%!important;
   min-height: 400px;
+  padding-top: ${vars.navHeight};
 `;
 
 const ContentInner = styled.div``;

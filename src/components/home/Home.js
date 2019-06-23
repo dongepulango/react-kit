@@ -42,7 +42,7 @@ const Home = () => {
   
   //state
   const [state, setState] = useState({
-    sec1: false,
+    sec1: true,
     sec2: false,
   });
   

@@ -23,6 +23,23 @@ import { useTransition, animated as A } from 'react-spring';
 const GlobalStyle = createGlobalStyle`
   ${reset};
   ${typography};
+  /* Modal */
+  .ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+  }
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+  /* Collapse */
+  .collapse-css-transition {
+    overflow: hidden;
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
 `;
 
 //Theme Colors
@@ -54,15 +71,12 @@ const App = () => {
   const transitions = useTransition(location, location => location.pathname, {
     from: {
       opacity: 0,
-      //transform: 'translate(100%, 0)',
     },
     enter: {
       opacity: 1,
-      //transform: 'translate(0, 0)',
     },
     leave: {
       opacity: 0,
-      //transform: 'translate(-50%, 0)',
     },
   });
 

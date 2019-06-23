@@ -1,8 +1,8 @@
 import React from 'react';
 //router
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 //styles
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import vars from './Vars';
 
@@ -56,6 +56,56 @@ const NavInner = styled.nav`
   }
 `;
 
+const NavToggle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  padding: 2px 0;
+  overflow: hidden;
+  position: relative;
+  transition: ${vars.transitions.hover1};
+  color: ${vars.colors.textDark};
+  cursor: pointer;
+  &:hover {
+    .nav-toggle-line {
+      opacity: 0.8;
+      &:nth-child(2) {
+        transform: translateX(10px);
+      }
+    }
+  }
+  .nav-toggle-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: ${vars.transitions.hover1};
+  }
+  ${props => props.active && css`
+    .nav-toggle-line {
+      background-color: #fff;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      &:nth-child(1) {
+        transform: rotate(-45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(45deg);
+      }
+    }
+  `}
+`;
+
 const Nav = (props) => {
   return (
     <NavInner>
@@ -70,7 +120,11 @@ const Nav = (props) => {
           <NavLink to="/contact">Contact</NavLink>
         </li>
         <li className="nav-toggle">
-          <span className={props.mobileNavState ? 'active toggle' : 'toggle'} onClick={props.toggleMobileNav}>Menu</span>
+          <NavToggle active={props.mobileNavState} onClick={props.toggleMobileNav}>
+            <span className="nav-toggle-line"></span>
+            <span className="nav-toggle-line"></span>
+            <span className="nav-toggle-line"></span>
+          </NavToggle>
         </li>
       </ul>
     </NavInner>

@@ -81,6 +81,7 @@ const vars = {
     hover2: 'color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s, border 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s', 
   },
   maxWidth: '1200px',
+  navHeight: '70px',
 }
 
 export default vars;
