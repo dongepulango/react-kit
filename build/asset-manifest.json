@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/react-kit/static/js/main.5b728d27.chunk.js",
-    "main.js.map": "/react-kit/static/js/main.5b728d27.chunk.js.map",
+    "main.js": "/react-kit/static/js/main.3946a75a.chunk.js",
+    "main.js.map": "/react-kit/static/js/main.3946a75a.chunk.js.map",
     "runtime~main.js": "/react-kit/static/js/runtime~main.9b365e17.js",
     "runtime~main.js.map": "/react-kit/static/js/runtime~main.9b365e17.js.map",
-    "static/js/2.54fa1c79.chunk.js": "/react-kit/static/js/2.54fa1c79.chunk.js",
-    "static/js/2.54fa1c79.chunk.js.map": "/react-kit/static/js/2.54fa1c79.chunk.js.map",
+    "static/js/2.0eb9ee7e.chunk.js": "/react-kit/static/js/2.0eb9ee7e.chunk.js",
+    "static/js/2.0eb9ee7e.chunk.js.map": "/react-kit/static/js/2.0eb9ee7e.chunk.js.map",
     "index.html": "/react-kit/index.html",
-    "precache-manifest.a0e26de000fee08f36024fd3f380f491.js": "/react-kit/precache-manifest.a0e26de000fee08f36024fd3f380f491.js",
+    "precache-manifest.79b84061ece5be779c547f196eb9b551.js": "/react-kit/precache-manifest.79b84061ece5be779c547f196eb9b551.js",
     "service-worker.js": "/react-kit/service-worker.js",
     "static/media/BalkanBrothers-logo-white.svg": "/react-kit/static/media/BalkanBrothers-logo-white.f4242690.svg"
   }
