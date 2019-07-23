@@ -77,11 +77,14 @@ const vars = {
     f500: '31.25rem',
   },
   transitions: {
-    hover1: 'all 0.2s ease-in-out 0s', 
-    hover2: 'color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s, border 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s', 
+    hover1: 'all 0.2s ease-in-out 0s',
+    hover2: 'color 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s, border 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s',
+    hover3: 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0s',
+    hover4: 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0s',
+    hover5: 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s', 
   },
   maxWidth: '1200px',
-  navHeight: '70px',
+  navHeight: 70,
 }
 
 export default vars;

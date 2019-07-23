@@ -1,13 +1,13 @@
 import React from 'react';
 //router
-import { NavLink } from 'react-router-dom';
+import { Link } from '@reach/router';
 //styles
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import vars from './Vars';
 
 //styled
-const NavInner = styled.nav`
+const NavWrap = styled.nav`
   transition: ${vars.transitions.hover1};
   ul {
     list-style: none;
@@ -32,6 +32,10 @@ const NavInner = styled.nav`
           &:focus,
           &:active {
             color: #fff;
+          }
+          /* Current Page */
+          &[aria-current="page"] {
+            color: ${vars.colors.blue};
           }
         }
       }
@@ -108,16 +112,16 @@ const NavToggle = styled.div`
 
 const Nav = (props) => {
   return (
-    <NavInner>
+    <NavWrap>
       <ul>
         <li className="nav-link">
-          <NavLink to="/" exact={true}>Home</NavLink>
+          <Link to="/">Home</Link>
         </li>
         <li className="nav-link">
-          <NavLink to="/about">About</NavLink>
+          <Link to="/about">About</Link>
         </li>
         <li className="nav-link">
-          <NavLink to="/contact">Contact</NavLink>
+          <Link to="/contact">Contact</Link>
         </li>
         <li className="nav-toggle">
           <NavToggle active={props.mobileNavState} onClick={props.toggleMobileNav}>
@@ -127,8 +131,8 @@ const Nav = (props) => {
           </NavToggle>
         </li>
       </ul>
-    </NavInner>
+    </NavWrap>
   );
-}
+};
 
 export default Nav;

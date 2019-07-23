@@ -1,87 +1,89 @@
-import React from 'react';
+import React, { useContext } from 'react';
+//context
+import { GlobalContext } from '../Context';
 //router
-import { Link } from 'react-router-dom';
+import { Link } from '@reach/router';
 //styles
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import vars from './Vars';
 import { rgba } from 'polished';
-//react modal
-import ReactModal from 'react-modal';
 
 //styled
-const MobileNavInner = styled.section`
-  position: relative;
+const MobileNavWrap = styled.section`
+  position: fixed;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transform: translate3d(0, -100%, 0);
+  transition: ${vars.transitions.hover5};
+  will-change: transform;
+  background-color: ${rgba('#000', 0.95)};
+  ${props => props.active && css`
+    transform: translate3d(0, 0, 0);
+  `}
 `;
 
-const MobileNavWrap = styled.div`
+const MobileNavInner = styled.div`
   position: relative;
-  height: 100vh;
+  margin-top: ${vars.navHeight}px;
+  height: calc(100vh - ${vars.navHeight}px);
   overflow-y: scroll;
-  margin: 0 auto;
-  background-color: ${rgba('#000', 0.95)};
   padding-top: ${vars.navHeight};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const MobileNavContent = styled.div`
   position: relative;
   text-align: center;
+  padding-top: ${vars.navHeight}px;
 `;
 
 const MobileNavLinks = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
+  transform: translateY(-${vars.navHeight}px);
+  li {
+    > a {
+      font-size: ${vars.rems.f22};
+      color: #fff;
+      /* Current Page */
+      &[aria-current='page'] {
+        color: ${vars.colors.blue};
+      }
+    }
+  }
 `;
 
+const MobileNav = () => {
 
-//modal styles override
-const style = {
-  overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 9999,
-    backgroundColor: 'transparent'
-  },
-  content: {
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    right: '0',
-    bottom: 'auto',
-    maxWidth: '100%',
-    margin: 'auto',
-    border: 'none',
-    background: 'none',
-    overflow: 'auto',
-    WebkitOverflowScrolling: 'touch',
-    borderRadius: '0px',
-    outline: 'none',
-    padding: '0'
-  }
-}
+  //use Context
+  const [context, setContext] = useContext(GlobalContext);
 
-//Root element
-ReactModal.setAppElement('#root');
-
-const MobileNav = (props) => {
+  //close modal
+  const closeMobileNav = () => {
+    setContext({
+      ...context,
+      mobileNav: false,
+    });
+  };
 
   return (
-    <MobileNavInner>
-      <ReactModal isOpen={props.openModal} onRequestClose={props.closeMobileNav} contentLabel="Modal" closeTimeoutMS={300} style={style}>
-        <MobileNavWrap>
-          <MobileNavContent>
-            <MobileNavLinks onClick={props.closeMobileNav}>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-            </MobileNavLinks>
-          </MobileNavContent>
-        </MobileNavWrap>
-      </ReactModal>
-    </MobileNavInner>
+    <MobileNavWrap active={context.mobileNav}>
+      <MobileNavInner>
+        <MobileNavContent>
+          <MobileNavLinks onClick={closeMobileNav}>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </MobileNavLinks>
+        </MobileNavContent>
+      </MobileNavInner>
+    </MobileNavWrap>
   );
 };
 

@@ -1,20 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 //context
 import { GlobalContext } from '../Context';
 //router
-import { Link } from 'react-router-dom'
+import { Link } from '@reach/router';
 //styles
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import vars from './Vars';
 //components
 import Nav from './Nav';
 import ContainerFluid from '../components/ContainerFluid';
-import MobileNav from './MobileNav';
 //assets
 import logo from '../assets/images/BalkanBrothers-logo-white.svg';
 
 //styled
-const HeaderInner = styled.header`
+const HeaderWrap = styled.header`
   display: flex;
   align-items: center;
   background-color: ${vars.colors.textDark};
@@ -22,17 +21,16 @@ const HeaderInner = styled.header`
   padding-bottom: 20px;
   transition: background-color 0.3s ease-in-out;
   will-change: background-color;
-  height: ${vars.navHeight};
+  height: ${vars.navHeight}px;
   position: fixed;
   margin: auto;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9;
-  &.active {
+  z-index: 99999;
+  ${props => props.active  && css`
     background-color: transparent;
-    z-index: 99999;
-  }
+  `}
 `;
 const NavContainerFluid = styled(ContainerFluid)`
   display: flex;
@@ -40,65 +38,55 @@ const NavContainerFluid = styled(ContainerFluid)`
   justify-content: space-between;
 `;
 
-
 const Header = () => {
 
-  // //use State
-  // const [navState, setNavState] = useState({
-  //   active: false
-  // });
-
-  // //set nav active
-  // const toggleNavActive = () => {
-  //   setNavState({
-  //     active: !navState.active,
-  //   })
-  // }
-
-  // //mount
-  // useEffect(() => {
-  //   console.log('Mounted!');
-  //   //unmount
-  //   return () => {
-  //     console.log('Unmounted!');
-  //   };
-  // }, []);
-
   //use Context
-  const [state, setState] = useContext(GlobalContext);
+  const [context, setContext] = useContext(GlobalContext);
 
   //toggle mobile nav state
   const toggleMobileNav = () => {
-    setState({
-      ...state,
-      mobileNav: !state.mobileNav,
-    })
-  }
+    setContext({
+      ...context,
+      mobileNav: !context.mobileNav,
+    });
+  };
 
   //close modal
   const closeMobileNav = () => {
-    setState({
-      ...state,
+    setContext({
+      ...context,
       mobileNav: false,
-    })
-  }
+    });
+  };
+
+  //window width state
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  //window resize
+  useEffect(() => {
+    const windowResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (windowWidth > 1200) {
+        if(context.mobileNav === true) {
+          closeMobileNav();
+        }
+      }
+    }
+    window.addEventListener('resize', windowResize);
+    return () => {
+      window.removeEventListener('resize', windowResize);
+    };
+  });
   
   return (
-    <HeaderInner className={state.mobileNav ? 'active' : null}>
+    <HeaderWrap active={context.mobileNav}>
       <NavContainerFluid maxWidth={'1600px'}>
         <Link to="/">
           <img src={logo} className="logo" alt="logo" />
         </Link>
-        <Nav
-          mobileNavState={state.mobileNav}
-          toggleMobileNav={toggleMobileNav}
-        />
+        <Nav mobileNavState={context.mobileNav} toggleMobileNav={toggleMobileNav} />
       </NavContainerFluid>
-      <MobileNav
-        openModal={state.mobileNav}
-        closeMobileNav={closeMobileNav}
-      />
-    </HeaderInner>
+    </HeaderWrap>
   );
 }
 

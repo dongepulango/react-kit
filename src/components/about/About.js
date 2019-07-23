@@ -11,7 +11,7 @@ import Heading from '../Heading';
 import { Row, Col } from 'styled-bootstrap-grid';
 
 //styled
-const AboutWrapper = styled.section`
+const AboutWrap = styled.section`
   padding-top: 100px;
   padding-bottom: 100px;
   @media (max-width: ${vars.media.lgMax}) {
@@ -23,7 +23,7 @@ const AboutWrapper = styled.section`
 const About = () => {
   return (
     <Layout>
-      <AboutWrapper>
+      <AboutWrap>
         <ContainerFluid>
           <Heading>About</Heading>
           <Row>
@@ -38,9 +38,9 @@ const About = () => {
             </Col>
           </Row>
         </ContainerFluid>
-      </AboutWrapper>
+      </AboutWrap>
     </Layout>
   );
-}
+};
 
 export default About;

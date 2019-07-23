@@ -5,20 +5,21 @@ import styled from 'styled-components';
 import Layout from '../Layout';
 
 //styled
-const ErrorWrapper = styled.section`
+const ErrorWrap = styled.section`
   padding-top: 100px;
   padding-bottom: 100px;
+  text-align: center;
 `;
 
 const Error = () => {
   return (
     <Layout>
-      <ErrorWrapper>
+      <ErrorWrap>
         <h1>404</h1>
         <p>Page not found.</p>
-      </ErrorWrapper>
+      </ErrorWrap>
     </Layout>
   );
-}
+};
 
 export default Error;

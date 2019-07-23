@@ -1,33 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 //styles
 import styled from 'styled-components';
 import vars from './Vars';
-//components
-import Footer from './Footer.js';
+
 
 //styled
-const Content = styled.section`
-  position: absolute;
+const LayoutWrap = styled.section`
+  position: relative;
   overflow: hidden;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%!important;
-  min-height: 400px;
-  padding-top: ${vars.navHeight};
+  min-height: 100vh;
+  padding-top: ${vars.navHeight}px;
 `;
 
 const ContentInner = styled.div``;
 
 const Layout = (props) => {
+
+  //scroll to top on page change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[]);
+
   return (
-    <Content>
+    <LayoutWrap>
       <ContentInner>
         {props.children}
       </ContentInner>
-      <Footer />
-    </Content>
+    </LayoutWrap>
   );
 };
 

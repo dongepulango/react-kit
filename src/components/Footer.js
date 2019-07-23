@@ -6,7 +6,7 @@ import { Row, Col } from 'styled-bootstrap-grid';
 import ContainerFluid from './ContainerFluid';
 
 //styled
-const FooterInner = styled.footer`
+const FooterWrap = styled.footer`
   background-color: #eee;
 `;
 
@@ -24,7 +24,7 @@ const FooterBottom = styled.section`
 
 const Footer = () => {
   return (
-    <FooterInner>
+    <FooterWrap>
       <ContainerFluid>
         <FooterTop>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea animi quis quibusdam numquam modi cumque ab, vero labore aperiam quae repellat maxime nemo tenetur minima. Vero iusto id in odio?</p>
@@ -46,8 +46,8 @@ const Footer = () => {
           </Row>
         </FooterBottom>
       </ContainerFluid>
-    </FooterInner>
+    </FooterWrap>
   );
-}
+};
 
 export default Footer;

@@ -20,6 +20,6 @@ const Card = (props) => {
       <p>{props.text}</p>
     </CardInner>
   );
-}
+};
 
 export default Card;

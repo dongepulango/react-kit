@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 //context
 import GlobalContext from './Context';
 //Router
-import { Route, Switch, __RouterContext } from 'react-router-dom';
-import ScrollToTop from 'react-router-scroll-top';
+import { Router, Location } from "@reach/router"
 //Styles
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import reset from './components/Reset';
@@ -11,13 +10,15 @@ import typography from './components/Typography';
 import vars from './components/Vars';
 //components
 import Header from './components/Header';
+import Footer from './components/Footer';
+import MobileNav from './components/MobileNav';
 //Pages
-import Home from './components/home/Home'
-import About from './components/about/About'
-import Contact from './components/contact/Contact'
-import Error from './components/error/Error'
-//animations
-import { useTransition, animated as A } from 'react-spring';
+import Home from './components/home/Home';
+import About from './components/about/About';
+import Contact from './components/contact/Contact';
+import Error from './components/error/Error';
+//posed
+import posed, { PoseGroup } from 'react-pose';
 
 //Reset & Default Styles
 const GlobalStyle = createGlobalStyle`
@@ -33,12 +34,6 @@ const GlobalStyle = createGlobalStyle`
   }
   .ReactModal__Overlay--before-close {
     opacity: 0;
-  }
-  /* Collapse */
-  .collapse-css-transition {
-    overflow: hidden;
-    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
   }
 `;
 
@@ -56,51 +51,48 @@ const theme = {
 }
 
 //styled
-const PageWrap = styled.section`
+const SiteWrap = styled.section`
   position: relative;
-  > section {
-    position: relative;
-  }
 `;
 
+//posed
+const RouteContainer = posed.div({
+  enter: {
+    opacity: 1,
+    delay: 300,
+  },
+  exit: {
+    opacity: 0
+  }
+});
+
 const App = () => {
-
-  //use Router Context for location
-  const { location } = useContext(__RouterContext);
-  //page transitions
-  const transitions = useTransition(location, location => location.pathname, {
-    from: {
-      opacity: 0,
-    },
-    enter: {
-      opacity: 1,
-    },
-    leave: {
-      opacity: 0,
-    },
-  });
-
   return (
     <ThemeProvider theme={theme}>
       <GlobalContext>
         <GlobalStyle />
-        <ScrollToTop />
-        <PageWrap>
+        <SiteWrap>
           <Header />
-          {transitions.map(({ item, props, key }) => (
-            <A.section key={key} style={props}>
-              <Switch location={item}>
-                <Route path="/" component={Home} exact={true} />
-                <Route path="/about" component={About} />
-                <Route path="/contact" component={Contact} />
-                <Route component={Error} />
-              </Switch>
-            </A.section>
-          ))}
-        </PageWrap> 
+          <MobileNav />
+          <Location>
+            {({ location }) => (
+              <PoseGroup>
+                <RouteContainer key={location.key}>
+                  <Router location={location}>
+                    <Home path="/" />
+                    <About path="/about" />
+                    <Contact path="/contact" />
+                    <Error default />
+                  </Router>
+                </RouteContainer>
+              </PoseGroup>
+            )}
+          </Location>
+          <Footer />
+        </SiteWrap> 
       </GlobalContext>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

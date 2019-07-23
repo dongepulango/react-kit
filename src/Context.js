@@ -14,6 +14,6 @@ const Context = (props) => {
       {props.children}
     </GlobalContext.Provider>
   );
-} 
+};
 
 export default Context;

@@ -80,33 +80,6 @@ const typography = css`
   h6 {
     font-size: 1rem;
   }
-
-  /* Web Fonts */
-  @font-face {
-    font-family: 'Lota Grotesque';
-    src: url('./assets/fonts/LotaGrotesque-Regular.eot');
-    src: url('./assets/fonts/LotaGrotesque-Regular.eot?#iefix') format('embedded-opentype'),
-         url('./assets/fonts/LotaGrotesque-Regular.woff2') format('woff2'),
-         url('./assets/fonts/LotaGrotesque-Regular.woff') format('woff'),
-         url('./assets/fonts/LotaGrotesque-Regular.ttf') format('truetype'),
-         url('./assets/fonts/LotaGrotesque-Regular.svg#LotaGrotesque-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: fallback;
-  }
-
-  @font-face {
-    font-family: 'Lota Grotesque';
-    src: url('./assets/fonts/LotaGrotesque-Bold.eot');
-    src: url('./assets/fonts/LotaGrotesque-Bold.eot?#iefix') format('embedded-opentype'),
-         url('./assets/fonts/LotaGrotesque-Bold.woff2') format('woff2'),
-         url('./assets/fonts/LotaGrotesque-Bold.woff') format('woff'),
-         url('./assets/fonts/LotaGrotesque-Bold.ttf') format('truetype'),
-         url('./assets/fonts/LotaGrotesque-Bold.svg#LotaGrotesque-Bold') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: fallback;
-  }
 `;
 
 export const Typography = createGlobalStyle`${typography}`;
