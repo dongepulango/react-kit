@@ -64,7 +64,7 @@ const MobileNav = () => {
   //use Context
   const [context, setContext] = useContext(GlobalContext);
 
-  //close modal
+  //close mobile nav
   const closeMobileNav = () => {
     setContext({
       ...context,
