@@ -15,9 +15,7 @@ export const Label = styled.label`
   margin-bottom: 5px;
 `;
 
-export const FormInput = styled.input.attrs(({ inputType }) => ({
-  type: inputType
-}))`
+export const FormInput = styled.input`
   display: block;
   width: 100%;
   padding: 12px 15px;
