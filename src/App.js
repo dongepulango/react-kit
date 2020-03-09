@@ -79,10 +79,9 @@ const App = () => {
               <PoseGroup>
                 <RouteContainer key={location.key}>
                   <Router location={location}>
-                    <Home path="/">
-                      <About path="about" />
-                      <Contact path="contact" />
-                    </Home>
+                    <Home path="/" />
+                    <About path="about" />
+                    <Contact path="contact" />
                     <Error default />
                   </Router>
                 </RouteContainer>
