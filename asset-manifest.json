@@ -1,14 +1,20 @@
 {
   "files": {
-    "main.js": "/react-kit/static/js/main.1d215f65.chunk.js",
-    "main.js.map": "/react-kit/static/js/main.1d215f65.chunk.js.map",
-    "runtime~main.js": "/react-kit/static/js/runtime~main.9b365e17.js",
-    "runtime~main.js.map": "/react-kit/static/js/runtime~main.9b365e17.js.map",
-    "static/js/2.5e74c844.chunk.js": "/react-kit/static/js/2.5e74c844.chunk.js",
-    "static/js/2.5e74c844.chunk.js.map": "/react-kit/static/js/2.5e74c844.chunk.js.map",
+    "main.js": "/react-kit/static/js/main.1feb422a.chunk.js",
+    "main.js.map": "/react-kit/static/js/main.1feb422a.chunk.js.map",
+    "runtime-main.js": "/react-kit/static/js/runtime-main.4ad015c1.js",
+    "runtime-main.js.map": "/react-kit/static/js/runtime-main.4ad015c1.js.map",
+    "static/js/2.2b18a20a.chunk.js": "/react-kit/static/js/2.2b18a20a.chunk.js",
+    "static/js/2.2b18a20a.chunk.js.map": "/react-kit/static/js/2.2b18a20a.chunk.js.map",
     "index.html": "/react-kit/index.html",
-    "precache-manifest.5bdc075bffb52b0f128235a661e7301d.js": "/react-kit/precache-manifest.5bdc075bffb52b0f128235a661e7301d.js",
+    "precache-manifest.41ba0cb820f4e378d2c3d212c64e2f35.js": "/react-kit/precache-manifest.41ba0cb820f4e378d2c3d212c64e2f35.js",
     "service-worker.js": "/react-kit/service-worker.js",
+    "static/js/2.2b18a20a.chunk.js.LICENSE.txt": "/react-kit/static/js/2.2b18a20a.chunk.js.LICENSE.txt",
     "static/media/BalkanBrothers-logo-white.svg": "/react-kit/static/media/BalkanBrothers-logo-white.f4242690.svg"
-  }
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4ad015c1.js",
+    "static/js/2.2b18a20a.chunk.js",
+    "static/js/main.1feb422a.chunk.js"
+  ]
 }
