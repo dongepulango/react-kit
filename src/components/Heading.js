@@ -14,7 +14,7 @@ const Heading = styled.h1`
     font-size: ${props => props.size ? between((props.fontSize - 10) + 'px', props.fontSize + 'px') : between('30px', '40px')};
   } */
   /* Heading1 */
-  ${props => props.heading2 && css`
+  ${props => props.heading1 && css`
     font-size: ${props => props.fontSize ? rem(props.fontSize + 'px') : rem('40px')};
   `}
   /* Heading2 */

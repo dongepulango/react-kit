@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 //styles
 import styled from 'styled-components';
 import vars from './Vars';
-
+//framer-motion
+import { motion } from 'framer-motion';
 
 //styled
-const LayoutWrap = styled.section`
+const LayoutWrap = styled(motion.section)`
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -22,7 +23,15 @@ const Layout = (props) => {
   },[]);
 
   return (
-    <LayoutWrap>
+    <LayoutWrap
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        ease: "easeOut",
+        duration: 1
+      }}
+      >
       <ContentInner>
         {props.children}
       </ContentInner>

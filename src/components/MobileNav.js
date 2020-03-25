@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 //context
 import { GlobalContext } from '../Context';
 //router
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
 import vars from './Vars';

@@ -1,6 +1,6 @@
 import React from 'react';
 //router
-import { Link } from '@reach/router';
+import { Link } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';

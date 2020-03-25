@@ -2,7 +2,7 @@ import React from 'react';
 //context
 import GlobalContext from './Context';
 //Router
-import { Router, Location } from "@reach/router"
+import { BrowserRouter, Switch, Route, } from "react-router-dom";
 //Styles
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import reset from './components/Reset';
@@ -16,9 +16,8 @@ import MobileNav from './components/MobileNav';
 import Home from './components/home/Home';
 import About from './components/about/About';
 import Contact from './components/contact/Contact';
-import Error from './components/error/Error';
-//posed
-import posed, { PoseGroup } from 'react-pose';
+//framer-motion
+import { AnimatePresence } from 'framer-motion';
 
 //Reset & Default Styles
 const GlobalStyle = createGlobalStyle`
@@ -55,41 +54,25 @@ const SiteWrap = styled.section`
   position: relative;
 `;
 
-//posed
-const RouteContainer = posed.div({
-  enter: {
-    opacity: 1,
-    delay: 300,
-  },
-  exit: {
-    opacity: 0
-  }
-});
-
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalContext>
         <GlobalStyle />
         <SiteWrap>
-          <Header />
-          <MobileNav />
-          <Location>
-            {({ location }) => (
-              <PoseGroup>
-                <RouteContainer key={location.key}>
-                  <Router location={location}>
-                    <Home path="/" />
-                    <About path="about" />
-                    <Contact path="contact" />
-                    <Error default />
-                  </Router>
-                </RouteContainer>
-              </PoseGroup>
-            )}
-          </Location>
-          <Footer />
-        </SiteWrap> 
+          <BrowserRouter>
+            <Header />
+            <MobileNav />
+            <AnimatePresence>
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/contact" component={Contact} />
+              </Switch>
+            </AnimatePresence>
+            <Footer />
+          </BrowserRouter>
+        </SiteWrap>
       </GlobalContext>
     </ThemeProvider>
   );
