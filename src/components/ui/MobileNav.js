@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 //context
-import { GlobalContext } from '../Context';
+import { GlobalContext } from 'components/Contex';
 //router
 import { Link } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
-import vars from 'components/Vars';
+import vars from 'components/styles/Vars';
 import { rgba } from 'polished';
 
 //styled

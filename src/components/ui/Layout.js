@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 //styles
 import styled from 'styled-components';
-import vars from 'components/Vars';
+import vars from 'components/styles/Vars';
 //framer-motion
 import { motion } from 'framer-motion';
 

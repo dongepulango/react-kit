@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
 //context
-import { GlobalContext } from 'Context';
+import { GlobalContext } from 'components/Contex';
 //router
 import { Link } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
-import vars from 'components/Vars';
+import vars from 'components/styles/Vars';
 //components
-import Nav from 'components/Nav';
-import ContainerFluid from 'components/Container';
+import Nav from 'components/ui/Nav';
+import ContainerFluid from 'components/ui/Container';
 //assets
 import logo from 'assets/images/BalkanBrothers-logo-white.svg';
 

@@ -1,6 +1,6 @@
 import { css, createGlobalStyle } from 'styled-components'
 import { darken } from 'polished';
-import vars from 'components/Vars';
+import vars from 'components/styles/Vars';
 
 const typography = css`
   /* My Typography Styles */

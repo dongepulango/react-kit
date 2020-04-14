@@ -1,6 +1,6 @@
 //styles
 import styled from 'styled-components';
-import vars from 'components/Vars';
+import vars from 'components/styles/Vars';
 
 const Container = styled.div`
   width: 100%;

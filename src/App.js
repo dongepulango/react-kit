@@ -1,21 +1,21 @@
 import React from 'react';
 //context
-import GlobalContext from './Context';
+import GlobalContext from 'components/Contex';
 //Router
 import { BrowserRouter, Switch, Route, } from "react-router-dom";
 //Styles
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import reset from 'components/Reset';
-import typography from 'components/Typography';
-import vars from 'components/Vars';
+import reset from 'components/styles/Reset';
+import typography from 'components/styles/Typography';
+import vars from 'components/styles/Vars';
 //components
-import Header from 'components/Header';
-import Footer from 'components/Footer';
-import MobileNav from 'components/MobileNav';
+import Header from 'components/ui/Header';
+import Footer from 'components/ui/Footer';
+import MobileNav from 'components/ui/MobileNav';
 //Pages
-import Home from 'components/home/Home';
-import About from 'components/about/About';
-import Contact from 'components/contact/Contact';
+import Home from 'components/Home';
+import About from 'components/About';
+import Contact from 'components/Contact';
 //framer-motion
 import { AnimatePresence } from 'framer-motion';
 

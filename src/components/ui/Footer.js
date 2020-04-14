@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'styled-bootstrap-grid';
 //components
-import ContainerFluid from 'components/Container';
+import ContainerFluid from 'components/ui/Container';
 
 //styled
 const FooterWrap = styled.footer`

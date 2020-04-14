@@ -2,11 +2,11 @@ import React from 'react';
 //styles
 import styled from 'styled-components';
 import { between } from 'polished';
-import vars from 'components/Vars';
+import vars from 'components/styles/Vars';
 //components
-import Layout from 'components/Layout';
-import Container from 'components/Container';
-import Heading from 'components/Heading';
+import Layout from 'components/ui/Layout';
+import Container from 'components/ui/Container';
+import Heading from 'components/ui/Heading';
 //grid
 import { Row, Col } from 'styled-bootstrap-grid';
 
