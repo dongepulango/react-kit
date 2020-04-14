@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
-import vars from './Vars';
+import vars from 'components/Vars';
 
 //styled
 const NavWrap = styled.nav`

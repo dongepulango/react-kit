@@ -1,16 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
 //context
-import { GlobalContext } from '../Context';
+import { GlobalContext } from 'Context';
 //router
 import { Link } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
-import vars from './Vars';
+import vars from 'components/Vars';
 //components
-import Nav from './Nav';
-import ContainerFluid from '../components/ContainerFluid';
+import Nav from 'components/Nav';
+import ContainerFluid from 'components/Container';
 //assets
-import logo from '../assets/images/BalkanBrothers-logo-white.svg';
+import logo from 'assets/images/BalkanBrothers-logo-white.svg';
 
 //styled
 const HeaderWrap = styled.header`

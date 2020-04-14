@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 //styles
 import styled from 'styled-components';
-import vars from './Vars';
+import vars from 'components/Vars';
 //framer-motion
 import { motion } from 'framer-motion';
 
@@ -25,12 +25,14 @@ const Layout = (props) => {
   return (
     <LayoutWrap
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{
-        ease: "easeOut",
-        duration: 1
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+          ease: 'easeInOut',
+        }
       }}
+      exit={{ opacity: 0 }}
       >
       <ContentInner>
         {props.children}

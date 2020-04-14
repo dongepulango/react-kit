@@ -1,11 +1,11 @@
 import React from 'react';
 //styles
 import styled from 'styled-components';
-import vars from '../Vars';
+import vars from 'components/Vars';
 //components
-import Layout from '../Layout';
-import ContainerFluid from '../ContainerFluid';
-import Heading from '../Heading';
+import Layout from 'components/Layout';
+import Container from 'components/Container';
+import Heading from 'components/Heading';
 //grid
 import { Row, Col } from 'styled-bootstrap-grid';
 
@@ -38,7 +38,7 @@ const Home = () => {
     <Layout>
       <HomeWrap>
         <HomeSec1>
-          <ContainerFluid>
+          <Container>
             <Heading heading1>Home Section 1</Heading>
             <Row>
               <Col md={6}>
@@ -50,19 +50,19 @@ const Home = () => {
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, incidunt nulla? Id quas in, soluta aliquid deserunt dicta error. Nobis, cupiditate voluptatibus optio id laudantium accusantium facilis reiciendis quasi pariatur eos quam dolores aliquid est sunt ratione neque fuga? Exercitationem nemo vero architecto perspiciatis reiciendis facere soluta tempore ad excepturi.</p>
               </Col>
             </Row>
-          </ContainerFluid>
+          </Container>
         </HomeSec1>
         <HomeSec2>
-          <ContainerFluid>
+          <Container>
             <Heading heading1>Home Section 2</Heading>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit id libero voluptatibus repudiandae aliquid iure, odit aperiam qui voluptate, a voluptates repellendus vitae, dicta molestias modi natus! Placeat maiores unde quibusdam velit consequatur vel doloribus facere magnam accusantium minima reprehenderit nisi, maxime laudantium cumque fuga soluta ullam. Ipsum esse iusto est, non sed nihil beatae inventore quis dicta? Commodi ea nisi dolorum corrupti. Optio minus iste deserunt suscipit facilis debitis ratione, esse modi nesciunt sint est incidunt velit maxime! Asperiores similique eum, omnis pariatur, distinctio quod placeat, in mollitia laboriosam ab eligendi odio non aut ipsa quam recusandae reprehenderit facere nemo dolore. Enim omnis numquam aut aliquam quisquam sapiente placeat consequatur illo facere consectetur, atque architecto explicabo officiis eius? Voluptates, minus dignissimos nam assumenda magni, quaerat exercitationem repellendus temporibus quasi in obcaecati cupiditate harum distinctio laborum magnam nostrum illo reprehenderit! Suscipit, ut facere, itaque doloribus quis aliquam dolor ipsa, quos fugit non cumque necessitatibus aut distinctio vitae! Illo culpa doloremque id laudantium labore soluta illum neque recusandae corporis, officiis non placeat aperiam cumque blanditiis ipsam perferendis suscipit sunt minima tempora reiciendis excepturi distinctio ea aliquid incidunt. Placeat rerum excepturi quod perspiciatis! Eligendi odit cumque facere libero dolorem quia nisi.</p>
-          </ContainerFluid>
+          </Container>
         </HomeSec2>
         <HomeSec3>
-          <ContainerFluid>
+          <Container>
             <Heading heading1>Home Section 3</Heading>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit id libero voluptatibus repudiandae aliquid iure, odit aperiam qui voluptate, a voluptates repellendus vitae, dicta molestias modi natus! Placeat maiores unde quibusdam velit consequatur vel doloribus facere magnam accusantium minima reprehenderit nisi, maxime laudantium cumque fuga soluta ullam. Ipsum esse iusto est, non sed nihil beatae inventore quis dicta? Commodi ea nisi dolorum corrupti. Optio minus iste deserunt suscipit facilis debitis ratione, esse modi nesciunt sint est incidunt velit maxime! Asperiores similique eum, omnis pariatur, distinctio quod placeat, in mollitia laboriosam ab eligendi odio non aut ipsa quam recusandae reprehenderit facere nemo dolore. Enim omnis numquam aut aliquam quisquam sapiente placeat consequatur illo facere consectetur, atque architecto explicabo officiis eius? Voluptates, minus dignissimos nam assumenda magni, quaerat exercitationem repellendus temporibus quasi in obcaecati cupiditate harum distinctio laborum magnam nostrum illo reprehenderit! Suscipit, ut facere, itaque doloribus quis aliquam dolor ipsa, quos fugit non cumque necessitatibus aut distinctio vitae! Illo culpa doloremque id laudantium labore soluta illum neque recusandae corporis, officiis non placeat aperiam cumque blanditiis ipsam perferendis suscipit sunt minima tempora reiciendis excepturi distinctio ea aliquid incidunt. Placeat rerum excepturi quod perspiciatis! Eligendi odit cumque facere libero dolorem quia nisi.</p>
-          </ContainerFluid>
+          </Container>
         </HomeSec3>
       </HomeWrap>
     </Layout>

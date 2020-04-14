@@ -5,17 +5,17 @@ import GlobalContext from './Context';
 import { BrowserRouter, Switch, Route, } from "react-router-dom";
 //Styles
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import reset from './components/Reset';
-import typography from './components/Typography';
-import vars from './components/Vars';
+import reset from 'components/Reset';
+import typography from 'components/Typography';
+import vars from 'components/Vars';
 //components
-import Header from './components/Header';
-import Footer from './components/Footer';
-import MobileNav from './components/MobileNav';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import MobileNav from 'components/MobileNav';
 //Pages
-import Home from './components/home/Home';
-import About from './components/about/About';
-import Contact from './components/contact/Contact';
+import Home from 'components/home/Home';
+import About from 'components/about/About';
+import Contact from 'components/contact/Contact';
 //framer-motion
 import { AnimatePresence } from 'framer-motion';
 
@@ -23,17 +23,6 @@ import { AnimatePresence } from 'framer-motion';
 const GlobalStyle = createGlobalStyle`
   ${reset};
   ${typography};
-  /* Modal */
-  .ReactModal__Overlay {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-  .ReactModal__Overlay--after-open {
-    opacity: 1;
-  }
-  .ReactModal__Overlay--before-close {
-    opacity: 0;
-  }
 `;
 
 //Theme Colors
@@ -63,7 +52,7 @@ const App = () => {
           <BrowserRouter>
             <Header />
             <MobileNav />
-            <AnimatePresence>
+            <AnimatePresence exitBeforeEnter>
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/about" component={About} />

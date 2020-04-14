@@ -2,7 +2,7 @@ import React from 'react';
 //styles
 import styled from 'styled-components';
 //components
-import Layout from '../Layout';
+import Layout from 'components/Layout';
 
 //styled
 const ErrorWrap = styled.section`

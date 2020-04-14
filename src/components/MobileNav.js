@@ -5,7 +5,7 @@ import { GlobalContext } from '../Context';
 import { Link } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
-import vars from './Vars';
+import vars from 'components/Vars';
 import { rgba } from 'polished';
 
 //styled

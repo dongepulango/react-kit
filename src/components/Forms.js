@@ -1,7 +1,7 @@
 //styles
 import styled from 'styled-components';
 import { lighten } from 'polished';
-import vars from './Vars';
+import vars from 'components/Vars';
 
 export const FormGroup = styled.div`
   margin-bottom: 20px;
