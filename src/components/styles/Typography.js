@@ -1,5 +1,5 @@
 import { css, createGlobalStyle } from 'styled-components'
-import { darken } from 'polished';
+import { darken, rem } from 'polished';
 import vars from 'components/styles/Vars';
 
 const typography = css`
@@ -48,7 +48,7 @@ const typography = css`
   p {
     margin-bottom: 0;
     + p {
-      margin-top: ${vars.rems.f20};
+      margin-top: ${rem('20px')};
     }
   }
   h1,
@@ -60,7 +60,7 @@ const typography = css`
     color: ${vars.colors.textDark};
     line-height: 1.2;
     margin-top: 0;
-    margin-bottom: ${vars.rems.f20};
+    margin-bottom: ${rem('20px')};
   }
   h1 {
     font-size: 2.5rem;

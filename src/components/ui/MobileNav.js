@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
 import vars from 'components/styles/Vars';
-import { rgba } from 'polished';
+import { rgba, rem } from 'polished';
 
 //styled
 const MobileNavWrap = styled.section`
@@ -49,7 +49,7 @@ const MobileNavLinks = styled.ul`
   transform: translateY(-${vars.navHeight}px);
   li {
     > a {
-      font-size: ${vars.rems.f22};
+      font-size: ${rem('22px')};
       color: #fff;
       /* Current Page */
       &[aria-current='page'] {

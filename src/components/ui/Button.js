@@ -1,6 +1,6 @@
 //styles
 import styled, { css } from 'styled-components';
-import { darken } from 'polished';
+import { darken, rem } from 'polished';
 import vars from 'components/styles/Vars';
 
 //styled
@@ -9,7 +9,7 @@ const Button = styled.button`
   border: none;
   padding: 15px 25px;
   border-radius: 4px;
-  font-size: ${vars.rems.f14};
+  font-size: ${rem('14px')};
   font-weight: 500;
   text-align: center;
   user-select: none;

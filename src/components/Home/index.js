@@ -1,7 +1,7 @@
 import React from 'react';
 //styles
 import styled from 'styled-components';
-import vars from 'components/styles/Vars';
+import { rem } from 'polished';
 //components
 import Layout from 'components/ui/Layout';
 import Container from 'components/ui/Container';
@@ -16,21 +16,21 @@ const HomeWrap = styled.section`
 
 const HomeSec1 = styled.section`
   position: relative;
-  padding-top: ${vars.rems.f100};
-  padding-bottom: ${vars.rems.f100};
+  padding-top: ${rem('100px')};
+  padding-bottom: ${rem('100px')};;
 `;
 
 const HomeSec2 = styled.section`
   position: relative;
   background-color: #f4f4f4;
-  padding-top: ${vars.rems.f100};
-  padding-bottom: ${vars.rems.f100};
+  padding-top: ${rem('100px')};
+  padding-bottom: ${rem('100px')};
 `;
 
 const HomeSec3 = styled.section`
   position: relative;
-  padding-top: ${vars.rems.f100};
-  padding-bottom: ${vars.rems.f100};
+  padding-top: ${rem('100px')};
+  padding-bottom: ${rem('100px')};
 `;
 
 const Home = () => {
