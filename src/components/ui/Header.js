@@ -1,10 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react';
-//context
-import { GlobalContext } from 'components/Contex';
+import React, { useState, useEffect } from 'react';
+//recoil
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+//store
+import { mobileNavState, mobileNavToggle, mobileNavClose } from 'components/Store';
 //router
 import { Link } from 'react-router-dom';
 //styles
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import vars from 'components/styles/Vars';
 //components
 import Nav from 'components/ui/Nav';
@@ -28,9 +30,6 @@ const HeaderWrap = styled.header`
   left: 0;
   right: 0;
   z-index: 99999;
-  ${props => props.active  && css`
-    background-color: transparent;
-  `}
 `;
 const NavContainerFluid = styled(ContainerFluid)`
   display: flex;
@@ -40,24 +39,10 @@ const NavContainerFluid = styled(ContainerFluid)`
 
 const Header = () => {
 
-  //use Context
-  const [context, setContext] = useContext(GlobalContext);
-
-  //toggle mobile nav state
-  const toggleMobileNav = () => {
-    setContext({
-      ...context,
-      mobileNav: !context.mobileNav,
-    });
-  };
-
-  //close modal
-  const closeMobileNav = () => {
-    setContext({
-      ...context,
-      mobileNav: false,
-    });
-  };
+  //recoil state
+  const navState = useRecoilValue(mobileNavState);
+  const navToggle = useSetRecoilState(mobileNavToggle);
+  const navClose = useSetRecoilState(mobileNavClose);
 
   //window width state
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -67,8 +52,8 @@ const Header = () => {
     const windowResize = () => {
       setWindowWidth(window.innerWidth);
       if (windowWidth > 1200) {
-        if(context.mobileNav === true) {
-          closeMobileNav();
+        if(navState === true) {
+          navClose();
         }
       }
     }
@@ -79,12 +64,12 @@ const Header = () => {
   });
   
   return (
-    <HeaderWrap active={context.mobileNav}>
+    <HeaderWrap>
       <NavContainerFluid maxWidth={'1600px'}>
         <Link to="/">
           <img src={logo} className="logo" alt="logo" />
         </Link>
-        <Nav mobileNavState={context.mobileNav} toggleMobileNav={toggleMobileNav} />
+        <Nav mobileNavState={navState} toggleMobileNav={navToggle} />
       </NavContainerFluid>
     </HeaderWrap>
   );

@@ -1,6 +1,8 @@
-import React, { useContext } from 'react';
-//context
-import { GlobalContext } from 'components/Contex';
+import React from 'react';
+//recoil
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+//store
+import { mobileNavState, mobileNavClose } from 'components/Store';
 //router
 import { Link } from 'react-router-dom';
 //styles
@@ -12,16 +14,18 @@ import { rgba, rem } from 'polished';
 const MobileNavWrap = styled.section`
   position: fixed;
   margin: auto;
-  top: 0;
+  top: ${vars.navHeight}px;
   left: 0;
   right: 0;
   z-index: 999;
-  transform: translate3d(0, -100%, 0);
-  transition: ${vars.transitions.hover5};
-  will-change: transform;
-  background-color: ${rgba('#000', 0.95)};
+  opacity: 0;
+  pointer-events: none;
+  transition: ${vars.transitions.hover1};
+  will-change: opacity;
+  background-color: ${rgba('#fff', 0.95)};
   ${props => props.active && css`
-    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    pointer-events: auto;
   `}
 `;
 
@@ -50,7 +54,7 @@ const MobileNavLinks = styled.ul`
   li {
     > a {
       font-size: ${rem('22px')};
-      color: #fff;
+      color: #000;
       /* Current Page */
       &[aria-current='page'] {
         color: ${vars.colors.blue};
@@ -61,22 +65,15 @@ const MobileNavLinks = styled.ul`
 
 const MobileNav = () => {
 
-  //use Context
-  const [context, setContext] = useContext(GlobalContext);
-
-  //close mobile nav
-  const closeMobileNav = () => {
-    setContext({
-      ...context,
-      mobileNav: false,
-    });
-  };
+  //recoil state
+  const navState = useRecoilValue(mobileNavState);
+  const navClose = useSetRecoilState(mobileNavClose);
 
   return (
-    <MobileNavWrap active={context.mobileNav}>
+    <MobileNavWrap active={navState}>
       <MobileNavInner>
         <MobileNavContent>
-          <MobileNavLinks onClick={closeMobileNav}>
+          <MobileNavLinks onClick={navClose}>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact</Link></li>

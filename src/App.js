@@ -1,13 +1,14 @@
 import React from 'react';
 //context
 import GlobalContext from 'components/Contex';
+//recoil
+import { RecoilRoot } from 'recoil';
 //Router
 import { BrowserRouter, Switch, Route, } from "react-router-dom";
 //Styles
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'components/styles/Reset';
 import typography from 'components/styles/Typography';
-import vars from 'components/styles/Vars';
 //components
 import Header from 'components/ui/Header';
 import Footer from 'components/ui/Footer';
@@ -25,19 +26,6 @@ const GlobalStyle = createGlobalStyle`
   ${typography};
 `;
 
-//Theme Colors
-const theme = {
-  gray: vars.colors.text,
-  grayDark: vars.colors.textDark,
-  grayLight: vars.colors.textLight,
-  primary: vars.colors.blue,
-  secondary: vars.colors.orange,
-  success: vars.colors.green,
-  danger: vars.colors.red,
-  warning: vars.colors.yellow,
-  info: vars.colors.teal,
-}
-
 //styled
 const SiteWrap = styled.section`
   position: relative;
@@ -45,7 +33,7 @@ const SiteWrap = styled.section`
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <RecoilRoot>
       <GlobalContext>
         <GlobalStyle />
         <SiteWrap>
@@ -63,7 +51,7 @@ const App = () => {
           </BrowserRouter>
         </SiteWrap>
       </GlobalContext>
-    </ThemeProvider>
+    </RecoilRoot>
   );
 };
 
