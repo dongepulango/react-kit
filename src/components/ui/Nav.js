@@ -1,4 +1,8 @@
 import React from 'react';
+//recoil
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+//store
+import { mobileNavState, mobileNavToggle } from 'components/Store';
 //router
 import { Link } from 'react-router-dom';
 //styles
@@ -110,7 +114,13 @@ const NavToggle = styled.div`
   `}
 `;
 
-const Nav = (props) => {
+const Nav = () => {
+
+  //recoil state
+  const navState = useRecoilValue(mobileNavState);
+  //recoil set
+  const navToggle = useSetRecoilState(mobileNavToggle);
+
   return (
     <NavWrap>
       <ul>
@@ -124,7 +134,7 @@ const Nav = (props) => {
           <Link to="/contact">Contact</Link>
         </li>
         <li className="nav-toggle">
-          <NavToggle active={props.mobileNavState} onClick={props.toggleMobileNav}>
+          <NavToggle active={navState} onClick={navToggle}>
             <span className="nav-toggle-line"></span>
             <span className="nav-toggle-line"></span>
             <span className="nav-toggle-line"></span>

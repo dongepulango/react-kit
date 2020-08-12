@@ -1,6 +1,4 @@
 import React from 'react';
-//context
-import GlobalContext from 'components/Contex';
 //recoil
 import { RecoilRoot } from 'recoil';
 //Router
@@ -27,30 +25,28 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 //styled
-const SiteWrap = styled.section`
+const SiteWrap = styled.div`
   position: relative;
 `;
 
 const App = () => {
   return (
     <RecoilRoot>
-      <GlobalContext>
-        <GlobalStyle />
-        <SiteWrap>
-          <BrowserRouter>
-            <Header />
-            <MobileNav />
-            <AnimatePresence exitBeforeEnter>
-              <Switch>
-                <Route path="/" exact component={Home} />
-                <Route path="/about" component={About} />
-                <Route path="/contact" component={Contact} />
-              </Switch>
-            </AnimatePresence>
-            <Footer />
-          </BrowserRouter>
-        </SiteWrap>
-      </GlobalContext>
+      <GlobalStyle />
+      <SiteWrap>
+        <BrowserRouter>
+          <Header />
+          <MobileNav />
+          <AnimatePresence exitBeforeEnter>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/contact" component={Contact} />
+            </Switch>
+          </AnimatePresence>
+          <Footer />
+        </BrowserRouter>
+      </SiteWrap>
     </RecoilRoot>
   );
 };

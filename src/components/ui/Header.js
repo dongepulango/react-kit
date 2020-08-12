@@ -1,8 +1,4 @@
-import React, { useState, useEffect } from 'react';
-//recoil
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-//store
-import { mobileNavState, mobileNavToggle, mobileNavClose } from 'components/Store';
+import React from 'react';
 //router
 import { Link } from 'react-router-dom';
 //styles
@@ -38,38 +34,13 @@ const NavContainerFluid = styled(ContainerFluid)`
 `;
 
 const Header = () => {
-
-  //recoil state
-  const navState = useRecoilValue(mobileNavState);
-  const navToggle = useSetRecoilState(mobileNavToggle);
-  const navClose = useSetRecoilState(mobileNavClose);
-
-  //window width state
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  //window resize
-  useEffect(() => {
-    const windowResize = () => {
-      setWindowWidth(window.innerWidth);
-      if (windowWidth > 1200) {
-        if(navState === true) {
-          navClose();
-        }
-      }
-    }
-    window.addEventListener('resize', windowResize);
-    return () => {
-      window.removeEventListener('resize', windowResize);
-    };
-  });
-  
   return (
     <HeaderWrap>
       <NavContainerFluid maxWidth={'1600px'}>
         <Link to="/">
           <img src={logo} className="logo" alt="logo" />
         </Link>
-        <Nav mobileNavState={navState} toggleMobileNav={navToggle} />
+        <Nav />
       </NavContainerFluid>
     </HeaderWrap>
   );

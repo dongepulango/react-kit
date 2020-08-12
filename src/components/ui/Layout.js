@@ -6,7 +6,7 @@ import vars from 'components/styles/Vars';
 import { motion } from 'framer-motion';
 
 //styled
-const LayoutWrap = styled(motion.section)`
+const LayoutWrap = styled(motion.main)`
   position: relative;
   overflow: hidden;
   min-height: 100vh;

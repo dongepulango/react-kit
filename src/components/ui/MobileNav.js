@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 //recoil
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 //store
@@ -11,7 +11,7 @@ import vars from 'components/styles/Vars';
 import { rgba, rem } from 'polished';
 
 //styled
-const MobileNavWrap = styled.section`
+const MobileNavWrap = styled.nav`
   position: fixed;
   margin: auto;
   top: ${vars.navHeight}px;
@@ -67,20 +67,42 @@ const MobileNav = () => {
 
   //recoil state
   const navState = useRecoilValue(mobileNavState);
+  //recoil store
   const navClose = useSetRecoilState(mobileNavClose);
 
+  //window width state
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  //window load & resize
+  useEffect(() => {
+    const windowResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (windowWidth > 1200) {
+        if(navState === true) {
+          navClose();
+        }
+      }
+    }
+    window.addEventListener('resize', windowResize);
+    return () => {
+      window.removeEventListener('resize', windowResize);
+    };
+  });
+
   return (
-    <MobileNavWrap active={navState}>
-      <MobileNavInner>
-        <MobileNavContent>
-          <MobileNavLinks onClick={navClose}>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-          </MobileNavLinks>
-        </MobileNavContent>
-      </MobileNavInner>
-    </MobileNavWrap>
+    windowWidth < 1200 ? (
+      <MobileNavWrap active={navState}>
+        <MobileNavInner>
+          <MobileNavContent>
+            <MobileNavLinks onClick={navClose}>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
+            </MobileNavLinks>
+          </MobileNavContent>
+        </MobileNavInner>
+      </MobileNavWrap>
+    ) : null
   );
 };
 

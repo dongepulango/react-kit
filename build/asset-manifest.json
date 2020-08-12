@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/static/js/main.897d93c1.chunk.js",
-    "main.js.map": "/static/js/main.897d93c1.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e5f4cb60.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e5f4cb60.js.map",
-    "static/js/2.f42285f6.chunk.js": "/static/js/2.f42285f6.chunk.js",
-    "static/js/2.f42285f6.chunk.js.map": "/static/js/2.f42285f6.chunk.js.map",
+    "main.js": "/static/js/main.e8dd6801.chunk.js",
+    "main.js.map": "/static/js/main.e8dd6801.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1de753b1.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1de753b1.js.map",
+    "static/js/2.31cf3d07.chunk.js": "/static/js/2.31cf3d07.chunk.js",
+    "static/js/2.31cf3d07.chunk.js.map": "/static/js/2.31cf3d07.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.fde0b87dadcbab7b582bb78019258d63.js": "/precache-manifest.fde0b87dadcbab7b582bb78019258d63.js",
+    "precache-manifest.b1b7366cd2b5d81c26ea229372222d34.js": "/precache-manifest.b1b7366cd2b5d81c26ea229372222d34.js",
     "service-worker.js": "/service-worker.js",
-    "static/js/2.f42285f6.chunk.js.LICENSE.txt": "/static/js/2.f42285f6.chunk.js.LICENSE.txt",
+    "static/js/2.31cf3d07.chunk.js.LICENSE.txt": "/static/js/2.31cf3d07.chunk.js.LICENSE.txt",
     "static/media/BalkanBrothers-logo-white.svg": "/static/media/BalkanBrothers-logo-white.f4242690.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e5f4cb60.js",
-    "static/js/2.f42285f6.chunk.js",
-    "static/js/main.897d93c1.chunk.js"
+    "static/js/runtime-main.1de753b1.js",
+    "static/js/2.31cf3d07.chunk.js",
+    "static/js/main.e8dd6801.chunk.js"
   ]
 }
