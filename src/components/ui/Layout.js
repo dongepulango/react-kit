@@ -11,6 +11,9 @@ const LayoutWrap = styled(motion.main)`
   overflow: hidden;
   min-height: 100vh;
   padding-top: ${vars.navHeight}px;
+  @media (max-width: ${vars.media.lgMax}) {
+    padding-top: ${vars.navHeightSM}px;
+  }
 `;
 
 const ContentInner = styled.div``;

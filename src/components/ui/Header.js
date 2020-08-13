@@ -26,6 +26,9 @@ const HeaderWrap = styled.header`
   left: 0;
   right: 0;
   z-index: 99999;
+  @media (max-width: ${vars.media.lgMax}) {
+    height: ${vars.navHeightSM}px;
+  }
 `;
 const NavContainerFluid = styled(ContainerFluid)`
   display: flex;

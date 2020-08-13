@@ -39,6 +39,7 @@ const vars = {
   },
   maxWidth: '1200px',
   navHeight: 70,
+  navHeightSM: 50,
 }
 
 export default vars;
