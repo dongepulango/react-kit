@@ -2,7 +2,7 @@ import React from 'react';
 //recoil
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 //store
-import { mobileNavState, mobileNavToggle } from 'components/Store';
+import { mobileNavState, mobileNavToggle } from 'components/store';
 //router
 import { Link } from 'react-router-dom';
 //styles

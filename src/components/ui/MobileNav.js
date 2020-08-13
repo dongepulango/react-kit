@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 //recoil
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 //store
-import { mobileNavState, mobileNavClose } from 'components/Store';
+import { mobileNavState, mobileNavClose } from 'components/store';
 //router
 import { Link } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
 import vars from 'components/styles/Vars';
 import { rgba, rem } from 'polished';
+//hooks
+import { useWindowSize } from 'components/hooks/useWindowSize';
 
 //styled
 const MobileNavWrap = styled.nav`
@@ -69,15 +71,13 @@ const MobileNav = () => {
   const navState = useRecoilValue(mobileNavState);
   //recoil store
   const navClose = useSetRecoilState(mobileNavClose);
-
-  //window width state
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  //window size
+  const windowSize = useWindowSize();
 
   //window load & resize
   useEffect(() => {
     const windowResize = () => {
-      setWindowWidth(window.innerWidth);
-      if (windowWidth > 1200) {
+      if (windowSize.width > 1200) {
         if(navState === true) {
           navClose();
         }
@@ -90,7 +90,7 @@ const MobileNav = () => {
   });
 
   return (
-    windowWidth < 1200 ? (
+    windowSize.width < 1200 ? (
       <MobileNavWrap active={navState}>
         <MobileNavInner>
           <MobileNavContent>
