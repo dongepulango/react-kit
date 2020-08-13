@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import vars from 'components/styles/Vars';
+//hooks
+import { useWindowSize } from 'components/hooks/useWindowSize';
 
 //styled
 const NavWrap = styled.nav`
@@ -20,12 +22,8 @@ const NavWrap = styled.nav`
     display: flex;
     li {
       &.nav-link {
-        margin-right: 20px;
-        &:nth-last-child(2) {
-          margin-right: 0;
-        }
-        @media (max-width: ${vars.media.lgMax}) {
-          display: none;
+        &:not(:last-child) {
+          margin-right: 20px;
         }
         > a {
           color: ${rgba('#fff', 0.7)};
@@ -39,23 +37,6 @@ const NavWrap = styled.nav`
           }
           /* Current Page */
           &[aria-current="page"] {
-            color: ${vars.colors.blue};
-          }
-        }
-      }
-      &.nav-toggle {
-        @media (min-width: ${vars.media.xlMin}) {
-          display: none;
-        }
-        .toggle {
-          display: block;
-          transition: ${vars.transitions.hover1};
-          color: ${rgba('#fff', 0.7)};
-          cursor: pointer;
-          &:hover {
-            color: #fff;
-          }
-          &.active {
             color: ${vars.colors.blue};
           }
         }
@@ -120,27 +101,32 @@ const Nav = () => {
   const navState = useRecoilValue(mobileNavState);
   //recoil set
   const navToggle = useSetRecoilState(mobileNavToggle);
+  //window size
+  const windowSize = useWindowSize();
 
   return (
     <NavWrap>
-      <ul>
-        <li className="nav-link">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="nav-link">
-          <Link to="/about">About</Link>
-        </li>
-        <li className="nav-link">
-          <Link to="/contact">Contact</Link>
-        </li>
-        <li className="nav-toggle">
+      {
+        windowSize.width < 1200 ? (
           <NavToggle active={navState} onClick={navToggle}>
             <span className="nav-toggle-line"></span>
             <span className="nav-toggle-line"></span>
             <span className="nav-toggle-line"></span>
           </NavToggle>
-        </li>
-      </ul>
+          ) : (
+          <ul>
+            <li className="nav-link">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="nav-link">
+              <Link to="/about">About</Link>
+            </li>
+            <li className="nav-link">
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        )
+      }
     </NavWrap>
   );
 };
