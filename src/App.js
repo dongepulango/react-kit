@@ -1,9 +1,9 @@
 import React from 'react';
 //recoil
 import { RecoilRoot } from 'recoil';
-//Router
+//router
 import { BrowserRouter, Switch, Route, } from "react-router-dom";
-//Styles
+//styles
 import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'components/styles/Reset';
 import typography from 'components/styles/Typography';
@@ -11,7 +11,7 @@ import typography from 'components/styles/Typography';
 import Header from 'components/ui/Header';
 import Footer from 'components/ui/Footer';
 import MobileNav from 'components/ui/MobileNav';
-//Pages
+//pages
 import Home from 'components/Home';
 import About from 'components/About';
 import Contact from 'components/Contact';
