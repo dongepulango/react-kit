@@ -1,6 +1,6 @@
 import React from 'react';
-//recoil
-import { RecoilRoot } from 'recoil';
+//context
+import Context from 'components/context';
 //router
 import { BrowserRouter, Switch, Route, } from "react-router-dom";
 //styles
@@ -12,9 +12,9 @@ import Header from 'components/ui/Header';
 import Footer from 'components/ui/Footer';
 import MobileNav from 'components/ui/MobileNav';
 //pages
-import Home from 'components/Home';
-import About from 'components/About';
-import Contact from 'components/Contact';
+import Home from 'components/pages/Home';
+import About from 'components/pages/About';
+import Contact from 'components/pages/Contact';
 //framer-motion
 import { AnimatePresence } from 'framer-motion';
 
@@ -31,7 +31,7 @@ const SiteWrap = styled.div`
 
 const App = () => {
   return (
-    <RecoilRoot>
+    <Context>
       <GlobalStyle />
       <SiteWrap>
         <BrowserRouter>
@@ -47,7 +47,7 @@ const App = () => {
           <Footer />
         </BrowserRouter>
       </SiteWrap>
-    </RecoilRoot>
+    </Context>
   );
 };
 

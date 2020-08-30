@@ -10,7 +10,6 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
-    "recoil": "0.0.10",
     "styled-bootstrap-grid": "^3.1.0",
     "styled-components": "^5.1.1"
   },
@@ -26,16 +25,7 @@
     "extends": "react-app",
     "plugins": [
       "react-hooks"
-    ],
-    "rules": {
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": [
-        "warn",
-        {
-          "additionalHooks": "useRecoilCallback"
-        }
-      ]
-    }
+    ]
   },
   "browserslist": [
     ">0.2%",

@@ -1,8 +1,6 @@
-import React from 'react';
-//recoil
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-//store
-import { mobileNavState, mobileNavToggle } from 'components/store';
+import React, { useContext } from 'react';
+//context
+import { GlobalContext } from 'components/context';
 //router
 import { Link } from 'react-router-dom';
 //styles
@@ -97,10 +95,15 @@ const NavToggle = styled.div`
 
 const Nav = () => {
 
-  //recoil state
-  const navState = useRecoilValue(mobileNavState);
-  //recoil set
-  const navToggle = useSetRecoilState(mobileNavToggle);
+  //use context
+  const [context, setContext] = useContext(GlobalContext);
+  //close nav
+  const toggleNav = () => {
+    setContext({
+      ...context,
+      mobileNav: !context.mobileNav
+    });
+  };
   //window size
   const windowSize = useWindowSize();
 
@@ -108,7 +111,7 @@ const Nav = () => {
     <NavWrap>
       {
         windowSize.width < 1200 ? (
-          <NavToggle active={navState} onClick={navToggle}>
+          <NavToggle active={context.mobileNav} onClick={toggleNav}>
             <span className="nav-toggle-line"></span>
             <span className="nav-toggle-line"></span>
             <span className="nav-toggle-line"></span>

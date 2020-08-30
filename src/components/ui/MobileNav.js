@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
-//recoil
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-//store
-import { mobileNavState, mobileNavClose } from 'components/store';
+import React, { useEffect, useContext } from 'react';
+//context
+import { GlobalContext } from 'components/context';
 //router
 import { Link } from 'react-router-dom';
 //styles
@@ -67,10 +65,15 @@ const MobileNavLinks = styled.ul`
 
 const MobileNav = () => {
 
-  //recoil state
-  const navState = useRecoilValue(mobileNavState);
-  //recoil store
-  const navClose = useSetRecoilState(mobileNavClose);
+  //use context
+  const [context, setContext] = useContext(GlobalContext);
+  //close nav
+  const closeNav = () => {
+    setContext({
+      ...context,
+      mobileNav: false
+    });
+  };
   //window size
   const windowSize = useWindowSize();
 
@@ -78,8 +81,8 @@ const MobileNav = () => {
   useEffect(() => {
     const windowResize = () => {
       if (windowSize.width > 1200) {
-        if(navState === true) {
-          navClose();
+        if(context.mobileNav === true) {
+          closeNav();
         }
       }
     }
@@ -91,10 +94,10 @@ const MobileNav = () => {
 
   return (
     windowSize.width < 1200 ? (
-      <MobileNavWrap active={navState}>
+      <MobileNavWrap active={context.mobileNav}>
         <MobileNavInner>
           <MobileNavContent>
-            <MobileNavLinks onClick={navClose}>
+            <MobileNavLinks onClick={closeNav}>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/contact">Contact</Link></li>
