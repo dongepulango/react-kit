@@ -8,6 +8,7 @@ const Context = (props) => {
   //use state
   const [state, setState] = useState({
     mobileNav: false,
+    headerScrolled: false,
   });
 
   return (

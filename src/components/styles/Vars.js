@@ -38,8 +38,8 @@ const vars = {
     hover5: 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s', 
   },
   maxWidth: '1200px',
-  navHeight: 70,
-  navHeightSM: 50,
+  headerHeight: 80,
+  headerHeightSm: 60,
 }
 
 export default vars;
