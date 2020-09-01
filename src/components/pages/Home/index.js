@@ -2,47 +2,81 @@ import React from 'react';
 //styles
 import styled from 'styled-components';
 import { rem } from 'polished';
+import vars from 'components/styles/Vars';
 //components
 import Layout from 'components/ui/Layout';
 import Container from 'components/ui/Container';
 import Heading from 'components/ui/Heading';
+import Button from 'components/ui/Button';
 //grid
 import { Row, Col } from 'styled-bootstrap-grid';
 
 //styled
 const HomeWrap = styled.section`
   position: relative;
-  ${props => props.night && `
-    background-color: #000;
-    color: #fff;
-  `}
 `;
 
-const HomeSec = styled.section`
+const HomeHero = styled.section`
+  position: relative;
+  padding-top: ${rem('150px')};
+  padding-bottom: ${rem('150px')};
+  background-color: #fafafa;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  p {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    max-width: 500px;
+  }
+`;
+
+const HomeBottom = styled.section`
   position: relative;
   padding-top: ${rem('100px')};
-  padding-bottom: ${rem('100px')};;
+  padding-bottom: ${rem('100px')};
+  .row {
+    @media (max-width: ${vars.media.smMax}) {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+    > div {
+      margin-bottom: 40px;
+    }
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 `;
 
 const Home = () => {
   return (
     <Layout>
       <HomeWrap>
-        <HomeSec>
+        <HomeHero>
           <Container>
-            <Heading heading1>Home</Heading>
-            <Row>
+            <Heading heading1>React Starter Kit</Heading>
+            <p>Activated charcoal church-key edison bulb chartreuse artisan iceland salvia organic single-origin coffee palo santo heirloom fam 3 wolf moon. Aesthetic venmo put a bird on it, edison bulb occupy meh knausgaard banh mi man bun church-key.</p>
+            <Button dark>Button</Button>
+          </Container>
+        </HomeHero>
+        <HomeBottom>
+          <Container>
+            <Row className="row">
               <Col md={6}>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta modi voluptate accusantium deserunt error fuga, nemo, perspiciatis facilis eum illo aperiam unde delectus facere. Sint sequi earum alias tenetur magnam, totam vitae commodi accusamus quod ullam ducimus tempora consequatur laudantium aliquid, numquam ad blanditiis est dolorum. Ab repellat consectetur perferendis aliquam deserunt vero ipsum quas sequi neque beatae eveniet aut, suscipit dolor porro sapiente voluptas recusandae eius quaerat minima illum doloribus exercitationem? Eaque labore vero quo, delectus veritatis sint nostrum tempore ad, odio deleniti laborum molestias modi saepe aut reprehenderit ab vel veniam. Nisi dolor placeat esse impedit voluptatem perspiciatis.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, incidunt nulla? Id quas in, soluta aliquid deserunt dicta error. Nobis, cupiditate voluptatibus optio id laudantium accusantium facilis reiciendis quasi pariatur eos quam dolores aliquid est sunt ratione neque fuga? Exercitationem nemo vero architecto perspiciatis reiciendis facere soluta tempore ad excepturi.</p>
+                <img src="https://via.placeholder.com/450x500" alt="placeholder"/>
               </Col>
               <Col md={6}>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non perferendis expedita fugit enim quidem aliquam deleniti asperiores ullam blanditiis adipisci. Id, mollitia. Eius earum nobis quis velit, necessitatibus voluptatem ad minus aspernatur ducimus eaque quas molestias exercitationem provident quod voluptatibus fugiat rerum non iste natus aliquid accusamus porro nisi architecto! Ipsa dignissimos impedit, incidunt distinctio, voluptas cupiditate facilis iure voluptatem adipisci mollitia architecto obcaecati dolorum nisi? Dolorem necessitatibus totam pariatur deserunt tempore illum aliquid doloribus minima. Unde reiciendis minima, eligendi numquam nobis placeat adipisci sapiente autem ipsam sint cumque nemo quibusdam quis accusantium doloremque aperiam? Quasi esse quaerat nostrum sapiente.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, incidunt nulla? Id quas in, soluta aliquid deserunt dicta error. Nobis, cupiditate voluptatibus optio id laudantium accusantium facilis reiciendis quasi pariatur eos quam dolores aliquid est sunt ratione neque fuga? Exercitationem nemo vero architecto perspiciatis reiciendis facere soluta tempore ad excepturi.</p>
+                <Heading heading2>Welcome</Heading>
+                <p>Activated charcoal church-key edison bulb chartreuse artisan iceland salvia organic single-origin coffee palo santo heirloom fam 3 wolf moon. Aesthetic venmo put a bird on it, edison bulb occupy meh knausgaard banh mi man bun church-key. Palo santo small batch put a bird on it pabst asymmetrical, waistcoat locavore. La croix mixtape tofu hot chicken enamel pin man braid.</p>
+                <p>Master cleanse fingerstache hell of brooklyn synth next level schlitz viral direct trade food truck jianbing you probably haven't heard of them fam. Flannel jianbing cold-pressed drinking vinegar single-origin coffee chillwave fashion axe prism yuccie vegan artisan.</p>
+                <p><Button>Button</Button></p>
               </Col>
             </Row>
           </Container>
-        </HomeSec>
+        </HomeBottom>
       </HomeWrap>
     </Layout>
   );

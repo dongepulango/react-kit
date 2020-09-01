@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 //context
 import { GlobalContext } from 'components/context';
 //router
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 import vars from 'components/styles/Vars';
+//components
+import Button from 'components/ui/Button';
 //hooks
 import { useWindowSize } from 'components/hooks/useWindowSize';
 
@@ -18,10 +20,11 @@ const NavWrap = styled.nav`
     padding: 0;
     margin: 0;
     display: flex;
+    align-items: center;
     li {
       &.nav-link {
         &:not(:last-child) {
-          margin-right: 20px;
+          margin-right: 30px;
         }
         > a {
           color: ${rgba('#fff', 0.7)};
@@ -32,10 +35,6 @@ const NavWrap = styled.nav`
           &:focus,
           &:active {
             color: #fff;
-          }
-          /* Current Page */
-          &[aria-current="page"] {
-            color: ${vars.colors.blue};
           }
         }
       }
@@ -119,13 +118,16 @@ const Nav = () => {
           ) : (
           <ul>
             <li className="nav-link">
-              <Link to="/">Home</Link>
+              <NavLink exact to="/"  activeClassName="active">Home</NavLink>
             </li>
             <li className="nav-link">
-              <Link to="/about">About</Link>
+              <NavLink exact to="/about" activeClassName="active">About</NavLink>
             </li>
             <li className="nav-link">
-              <Link to="/contact">Contact</Link>
+              <NavLink exact to="/contact" activeClassName="active">Contact</NavLink>
+            </li>
+            <li className="nav-link">
+              <Button sm>Log in</Button>
             </li>
           </ul>
         )

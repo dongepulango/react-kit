@@ -1,51 +1,69 @@
 import React from 'react';
+//router
+import { Link } from 'react-router-dom';
 //styles
 import styled from 'styled-components';
+import { rem } from 'polished';
+//grid
 import { Row, Col } from 'styled-bootstrap-grid';
 //components
-import ContainerFluid from 'components/ui/Container';
+import Container from 'components/ui/Container';
+import Heading from 'components/ui/Heading';
+//assets
+import logo from 'assets/images/BalkanBrothers-logo.svg';
 
 //styled
 const FooterWrap = styled.footer`
-  background-color: #eee;
+  background-color: #fafafa;
+  border-top: 1px solid #eee;
 `;
 
 const FooterTop = styled.section`
   padding-top: 100px;
   padding-bottom: 50px;
-  border-bottom: 1px solid #ddd;
 `;
 
 const FooterBottom = styled.section`
-  padding-top: 50px;
   padding-bottom: 100px;
-  border-bottom: 1px solid #ddd;
+  .row {
+    > div {
+      margin-bottom: 40px;
+    }
+  }
+  .lead {
+    font-size: ${rem('18px')};
+  }
 `;
 
 const Footer = () => {
   return (
     <FooterWrap>
-      <ContainerFluid>
+      <Container>
         <FooterTop>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea animi quis quibusdam numquam modi cumque ab, vero labore aperiam quae repellat maxime nemo tenetur minima. Vero iusto id in odio?</p>
+          <Link to="/">
+            <img src={logo} className="logo" alt="logo" />
+          </Link>
         </FooterTop>
         <FooterBottom>
-          <Row>
-            <Col md={6} xl={3}>
+          <Row className="row">
+            <Col sm={6} md={3}>
+              <p className="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae minima officia.</p>
+            </Col>
+            <Col sm={6} md={3}>
+              <Heading as="h4" heading6>Footer Heading</Heading>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae minima officia ex fugiat, ea excepturi fugit? Dolor repellat</p>
             </Col>
-            <Col md={6} xl={3}>
+            <Col sm={6} md={3}>
+              <Heading as="h4" heading6>Footer Heading</Heading>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae minima officia ex fugiat, ea excepturi fugit? Dolor repellat</p>
             </Col>
-            <Col md={6} xl={3}>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae minima officia ex fugiat, ea excepturi fugit? Dolor repellat</p>
-            </Col>
-            <Col md={6} xl={3}>
+            <Col sm={6} md={3}>
+              <Heading as="h4" heading6>Footer Heading</Heading>
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae minima officia ex fugiat, ea excepturi fugit? Dolor repellat</p>
             </Col>
           </Row>
         </FooterBottom>
-      </ContainerFluid>
+      </Container>
     </FooterWrap>
   );
 };

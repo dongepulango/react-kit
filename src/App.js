@@ -27,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
 //styled
 const SiteWrap = styled.div`
   position: relative;
+  .headroom-wrapper {
+    position: relative;
+    z-index: 9999;
+  }
 `;
 
 const App = () => {
@@ -39,7 +43,7 @@ const App = () => {
           <MobileNav />
           <AnimatePresence exitBeforeEnter>
             <Switch>
-              <Route path="/" exact component={Home} />
+              <Route path="/" exact component={Home}/>
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
             </Switch>

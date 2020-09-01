@@ -2,11 +2,13 @@ import React, { useEffect, useContext } from 'react';
 //context
 import { GlobalContext } from 'components/context';
 //router
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 //styles
 import styled, { css } from 'styled-components';
 import vars from 'components/styles/Vars';
 import { rgba, rem } from 'polished';
+//components
+import Button from 'components/ui/Button';
 //hooks
 import { useWindowSize } from 'components/hooks/useWindowSize';
 
@@ -14,7 +16,7 @@ import { useWindowSize } from 'components/hooks/useWindowSize';
 const MobileNavWrap = styled.nav`
   position: fixed;
   margin: auto;
-  top: ${vars.navHeight}px;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 999;
@@ -31,8 +33,7 @@ const MobileNavWrap = styled.nav`
 
 const MobileNavInner = styled.div`
   position: relative;
-  margin-top: ${vars.navHeight}px;
-  height: calc(100vh - ${vars.navHeight}px);
+  height: 100vh;
   overflow-y: scroll;
   padding-top: ${vars.navHeight};
   display: flex;
@@ -52,12 +53,18 @@ const MobileNavLinks = styled.ul`
   margin: 0;
   transform: translateY(-${vars.navHeight}px);
   li {
+    margin-bottom: 20px;
     > a {
       font-size: ${rem('22px')};
-      color: #000;
-      /* Current Page */
-      &[aria-current='page'] {
-        color: ${vars.colors.blue};
+      font-weight: 500;
+      color: ${rgba('#000', 0.7)};
+      &:hover,
+      &:focus,
+      &:active {
+        color: #000;
+      }
+      &.active {
+        color: #000;
       }
     }
   }
@@ -98,9 +105,18 @@ const MobileNav = () => {
         <MobileNavInner>
           <MobileNavContent>
             <MobileNavLinks onClick={closeNav}>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li className="nav-link">
+                <NavLink exact to="/" activeClassName="active">Home</NavLink>
+              </li>
+              <li className="nav-link">
+                <NavLink exact to="/about" activeClassName="active">About</NavLink>
+              </li>
+              <li className="nav-link">
+                <NavLink exact to="/contact" activeClassName="active">Contact</NavLink>
+              </li>
+              <li className="nav-link">
+                <Button sm>Log in</Button>
+              </li>
             </MobileNavLinks>
           </MobileNavContent>
         </MobileNavInner>

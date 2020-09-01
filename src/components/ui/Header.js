@@ -81,7 +81,7 @@ const Header = () => {
   return (
     <Headroom>
       <HeaderWrap scrolled={context.headerScrolled}>
-        <NavContainerFluid maxWidth={'1600px'}>
+        <NavContainerFluid maxWidth={'1920px'}>
           <Link to="/">
             <img src={logo} className="logo" alt="logo" />
           </Link>
