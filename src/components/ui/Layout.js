@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 //styles
 import styled from 'styled-components';
+import vars from 'components/styles/Vars';
 //framer-motion
 import { motion } from 'framer-motion';
 
@@ -8,7 +9,10 @@ import { motion } from 'framer-motion';
 const LayoutWrap = styled(motion.main)`
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: calc(100vh - ${vars.headerHeight}px);
+  @media (max-width: ${vars.media.lgMax}) {
+    min-height: calc(100vh - ${vars.headerHeightSm}px);
+  }
 `;
 
 const ContentInner = styled.div``;
