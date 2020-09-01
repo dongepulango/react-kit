@@ -15,6 +15,7 @@ import MobileNav from 'components/ui/MobileNav';
 import Home from 'components/pages/Home';
 import About from 'components/pages/About';
 import Contact from 'components/pages/Contact';
+import Error from 'components/pages/Error';
 //framer-motion
 import { AnimatePresence } from 'framer-motion';
 
@@ -46,6 +47,7 @@ const App = () => {
               <Route path="/" exact component={Home}/>
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
+              <Route component={Error} />
             </Switch>
           </AnimatePresence>
           <Footer />

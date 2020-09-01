@@ -1,8 +1,7 @@
 import React from 'react';
 //styles
 import styled from 'styled-components';
-import { between } from 'polished';
-import vars from 'components/styles/Vars';
+import { rem } from 'polished';
 //components
 import Layout from 'components/ui/Layout';
 import Container from 'components/ui/Container';
@@ -11,12 +10,8 @@ import Heading from 'components/ui/Heading';
 import { Row, Col } from 'styled-bootstrap-grid';
 
 const ContactWrap = styled.section`
-  padding-top: 100px;
-  padding-bottom: 100px;
-  @media (max-width: ${vars.media.lgMax}) {
-    padding-top: ${between('60px', '100px')};
-    padding-bottom: ${between('60px', '100px')};
-  }
+  padding-top: ${rem('100px')};
+  padding-bottom: ${rem('100px')};
 `;
 
 const Contact = () => {
