@@ -118,13 +118,13 @@ const Nav = () => {
           ) : (
           <ul>
             <li className="nav-link">
-              <NavLink exact to="/"  activeClassName="active">Home</NavLink>
+              <NavLink to="/"  className={({isActive}) => (isActive ? 'active' : null)}>Home</NavLink>
             </li>
             <li className="nav-link">
-              <NavLink exact to="/about" activeClassName="active">About</NavLink>
+              <NavLink to="/about" className={({isActive}) => (isActive ? 'active' : null)}>About</NavLink>
             </li>
             <li className="nav-link">
-              <NavLink exact to="/contact" activeClassName="active">Contact</NavLink>
+              <NavLink to="/contact" className={({isActive}) => (isActive ? 'active' : null)}>Contact</NavLink>
             </li>
             <li className="nav-link">
               <Button sm>Log in</Button>

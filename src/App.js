@@ -2,7 +2,7 @@ import React from 'react';
 //context
 import Context from 'components/context';
 //router
-import { BrowserRouter, Switch, Route, } from "react-router-dom";
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
 //styles
 import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'components/styles/Reset';
@@ -42,14 +42,12 @@ const App = () => {
         <BrowserRouter>
           <Header />
           <MobileNav />
-          <AnimatePresence exitBeforeEnter>
-            <Switch>
-              <Route path="/" exact component={Home}/>
-              <Route path="/about" component={About} />
-              <Route path="/contact" component={Contact} />
-              <Route component={Error} />
-            </Switch>
-          </AnimatePresence>
+          <Routes>
+            <Route path="/" exact element={<Home/>} />
+            <Route path="/about" element={<About/>} />
+            <Route path="/contact" element={<Contact/>} />
+            <Route element={Error} />
+          </Routes>
           <Footer />
         </BrowserRouter>
       </SiteWrap>
