@@ -17,7 +17,7 @@ import About from 'components/pages/About';
 import Contact from 'components/pages/Contact';
 import Error from 'components/pages/Error';
 //framer-motion
-import { AnimatePresence } from 'framer-motion';
+// import { AnimatePresence } from 'framer-motion';
 
 //Reset & Default Styles
 const GlobalStyle = createGlobalStyle`
